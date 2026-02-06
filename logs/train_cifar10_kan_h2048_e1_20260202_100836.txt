@@ -1,0 +1,27 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: cifar10
+Head: kan
+Hidden dim: 2048
+Epochs: 1
+Batch size: 32
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.0
+Seed: 42
+Device: cuda
+Log file: .\logs\train_cifar10_kan_h2048_e1_20260202_100836.txt
+============================================================
+
+Dataset: CIFAR10 | Device: cuda | Model: KAN | Params: 21,864,512
+
+Ep 1/1 | Loss: 1.6244 | Test Loss: 1.3244 | Train: 39.8% | Test: 51.6% | Best: 51.6%
+
+============================================================
+Training completed!
+Total training time: 32.04s (0.53m)
+Best test accuracy: 51.59%
+Model saved to: ./best.pt
+Log saved to: .\logs\train_cifar10_kan_h2048_e1_20260202_100836.txt
+============================================================

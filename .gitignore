@@ -1,0 +1,11 @@
+# Ignore Python cache
+__pycache__/
+
+# Ignore data folders
+/data/
+
+# Ignore model checkpoints and weights
+*.pt
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
