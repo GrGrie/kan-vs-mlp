@@ -1,8 +1,9 @@
 # Ignore Python cache
 __pycache__/
 
-# Ignore data folders
+# Ignore data folders and slurm logs
 /data/
+/slurm_output/
 
 # Ignore model checkpoints and weights
 *.pt
