@@ -6,6 +6,7 @@ import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Dataset
 from torchvision.datasets import MNIST
+from torchvision.models import ResNet18_Weights
 from tqdm import tqdm
 import time
 import math
@@ -19,6 +20,7 @@ import zipfile
 import shutil
 from datetime import datetime
 import sys
+from collections import deque
 
 # ==========================================
 # 1. Efficient KAN Linear Layer Implementation (Official)
@@ -321,7 +323,12 @@ class ColoredMNIST(Dataset):
         if self.transform:
             colored_img = self.transform(colored_img)
         
-        return colored_img, label
+        # Group: {digits 0-4, digits 5-9} × {red, green}
+        # group_id: 0=(0-4, red), 1=(0-4, green), 2=(5-9, red), 3=(5-9, green)
+        label_group = 0 if label < 5 else 1
+        group_id = label_group * 2 + color_channel
+        
+        return colored_img, label, group_id
 
 
 class MetaShiftDataset(Dataset):
@@ -397,14 +404,120 @@ class MetaShiftDataset(Dataset):
         if self.transform:
             img = self.transform(img)
         
-        return img, label
+        # Group: binary classification, group_id = label
+        group_id = label
+        
+        return img, label, group_id
+
+
+class WaterbirdsDataset(Dataset):
+    """
+    Waterbirds dataset - binary classification with spurious correlations
+    Landbirds vs Waterbirds with land/water backgrounds
+    """
+    def __init__(self, root, train=True, download=True, transform=None):
+        self.root = root
+        self.train = train
+        self.transform = transform
+        self.data_dir = os.path.join(root, 'waterbirds')
+        
+        if download:
+            self._download()
+        
+        self.samples = []
+        self.labels = []
+        self._load_data()
+    
+    def _download(self):
+        """Download and extract Waterbirds dataset from Stanford NLP"""
+        dataset_dir = os.path.join(self.data_dir, 'waterbird_complete95_forest2water2')
+        
+        # Check if already downloaded
+        if os.path.exists(dataset_dir) and len(os.listdir(dataset_dir)) > 0:
+            return
+        
+        print("Downloading Waterbirds dataset from Stanford NLP...")
+        os.makedirs(self.data_dir, exist_ok=True)
+        
+        url = 'https://nlp.stanford.edu/data/dro/waterbird_complete95_forest2water2.tar.gz'
+        tar_path = os.path.join(self.data_dir, 'waterbird_complete95_forest2water2.tar.gz')
+        
+        try:
+            # Download the tarball
+            urllib.request.urlretrieve(url, tar_path)
+            print("Download complete. Extracting...")
+            
+            # Extract the tar.gz file
+            import tarfile
+            with tarfile.open(tar_path, 'r:gz') as tar_ref:
+                tar_ref.extractall(self.data_dir)
+            
+            # Clean up tarball
+            os.remove(tar_path)
+            print("Waterbirds dataset extraction complete.")
+            
+        except Exception as e:
+            print(f"Error downloading Waterbirds dataset: {e}")
+            print(f"Please download manually from: {url}")
+            raise
+    
+    def _load_data(self):
+        """Load image paths and labels from metadata CSV"""
+        import csv
+        
+        dataset_dir = os.path.join(self.data_dir, 'waterbird_complete95_forest2water2')
+        metadata_path = os.path.join(dataset_dir, 'metadata.csv')
+        
+        if not os.path.exists(metadata_path):
+            raise FileNotFoundError(f"Metadata file not found at {metadata_path}. Please ensure the dataset is downloaded correctly.")
+        
+        self.places = []  # Store place (background) information
+        
+        with open(metadata_path, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # split: 0=train, 1=val, 2=test
+                split_id = int(row['split'])
+                
+                # Determine if this sample belongs to train or test
+                # train=True: use split 0 (train)
+                # train=False: use split 2 (test), we skip validation (split 1)
+                if self.train and split_id == 0:
+                    img_path = os.path.join(dataset_dir, row['img_filename'])
+                    self.samples.append(img_path)
+                    self.labels.append(int(row['y']))  # 0=landbird, 1=waterbird
+                    self.places.append(int(row['place']))  # 0=land, 1=water
+                elif not self.train and split_id == 2:
+                    img_path = os.path.join(dataset_dir, row['img_filename'])
+                    self.samples.append(img_path)
+                    self.labels.append(int(row['y']))  # 0=landbird, 1=waterbird
+                    self.places.append(int(row['place']))  # 0=land, 1=water
+    
+    def __len__(self):
+        return len(self.samples)
+    
+    def __getitem__(self, idx):
+        img_path = self.samples[idx]
+        label = self.labels[idx]
+        place = self.places[idx]
+        
+        img = Image.open(img_path).convert('RGB')
+        
+        if self.transform:
+            img = self.transform(img)
+        
+        # Group: {landbird, waterbird} × {land, water}
+        # group_id: 0=(landbird, land), 1=(landbird, water), 2=(waterbird, land), 3=(waterbird, water)
+        group_id = label * 2 + place
+        
+        return img, label, group_id
 
 
 class ResNetBackbone(nn.Module):
     def __init__(self, input_channels=3, image_size=32):
         super().__init__()
-        # Using 'weights=None' to avoid warnings
-        base_model = torchvision.models.resnet18(weights=None)
+        # Using 'weights=None' to avoid warnings, trying ImageNet weights
+        base_model = torchvision.models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
         
         # Adapt for small images (32x32 or similar)
         if image_size <= 64:
@@ -574,8 +687,33 @@ def get_dataloaders(data_dir, batch_size, dataset_name='cifar10'):
         
         return trainloader, testloader, 2, 3, 32
     
+    elif dataset_name == 'waterbirds':
+        # Waterbirds: 224x224 RGB images, binary classification (landbirds vs waterbirds)
+        transform_train = transforms.Compose([
+            transforms.Resize(256),
+            transforms.RandomCrop(224),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+        ])
+
+        transform_test = transforms.Compose([
+            transforms.Resize(256),
+            transforms.CenterCrop(224),
+            transforms.ToTensor(),
+            transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+        ])
+
+        trainset = WaterbirdsDataset(root=data_dir, train=True, download=True, transform=transform_train)
+        trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
+
+        testset = WaterbirdsDataset(root=data_dir, train=False, download=True, transform=transform_test)
+        testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
+        
+        return trainloader, testloader, 2, 3, 224
+    
     else:
-        raise ValueError(f"Unknown dataset: {dataset_name}. Choose from 'cifar10', 'cmnist', 'metashift'")
+        raise ValueError(f"Unknown dataset: {dataset_name}. Choose from 'cifar10', 'cmnist', 'metashift', 'waterbirds'")
 
 
 
@@ -588,7 +726,13 @@ def train_one_epoch(model, loader, criterion, optimizer, device, epoch=None, kan
     desc = f"Epoch {epoch}" if epoch is not None else "Training"
     pbar = tqdm(loader, desc=desc, leave=False)
     
-    for inputs, targets in pbar:
+    for batch in pbar:
+        # Handle both 2-tuple (image, label) and 3-tuple (image, label, group)
+        if len(batch) == 3:
+            inputs, targets, _ = batch  # Ignore groups during training
+        else:
+            inputs, targets = batch
+        
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = model(inputs)
@@ -624,30 +768,95 @@ def train_one_epoch(model, loader, criterion, optimizer, device, epoch=None, kan
     
     return running_loss / len(loader), 100. * correct / total
 
-def evaluate(model, loader, criterion, device):
+def evaluate(model, loader, criterion, device, num_groups=None):
+    """
+    Evaluate model on loader.
+    
+    Args:
+        model: Model to evaluate
+        loader: DataLoader
+        criterion: Loss function
+        device: Device to run on
+        num_groups: Number of groups for group-wise evaluation (None for no group tracking)
+    
+    Returns:
+        loss, overall_acc, worst_group_acc (worst_group_acc is None if num_groups is None)
+    """
     model.eval()
     running_loss = 0.0
     correct = 0
     total = 0
+    
+    # Group-wise tracking
+    if num_groups is not None:
+        group_correct = [0] * num_groups
+        group_total = [0] * num_groups
+    
     with torch.no_grad():
-        for inputs, targets in loader:
+        for batch in loader:
+            # Handle both 2-tuple (image, label) and 3-tuple (image, label, group)
+            if len(batch) == 3:
+                inputs, targets, groups = batch
+            else:
+                inputs, targets = batch
+                groups = None
+            
             inputs, targets = inputs.to(device), targets.to(device)
+            if groups is not None:
+                groups = groups.to(device)
+            
             outputs = model(inputs)
             loss = criterion(outputs, targets)
             running_loss += loss.item()
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
-    return running_loss / len(loader), 100. * correct / total
+            
+            # Track group-wise accuracy
+            if num_groups is not None and groups is not None:
+                for g in range(num_groups):
+                    mask = (groups == g)
+                    group_total[g] += mask.sum().item()
+                    group_correct[g] += (predicted[mask].eq(targets[mask])).sum().item()
+    
+    overall_acc = 100. * correct / total
+    
+    # Compute worst-group accuracy
+    if num_groups is not None:
+        group_accs = []
+        for g in range(num_groups):
+            if group_total[g] > 0:
+                group_acc = 100. * group_correct[g] / group_total[g]
+                group_accs.append(group_acc)
+            else:
+                group_accs.append(100.0)  # Empty group, assume perfect
+        worst_group_acc = min(group_accs) if group_accs else 0.0
+    else:
+        worst_group_acc = None
+    
+    return running_loss / len(loader), overall_acc, worst_group_acc
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+def get_num_groups(dataset_name):
+    """
+    Get the number of groups for each dataset.
+    Returns None for datasets without group structure.
+    """
+    group_map = {
+        'waterbirds': 4,  # {landbird, waterbird} × {land, water}
+        'cmnist': 4,      # {digits 0-4, digits 5-9} × {red, green}
+        'metashift': 2,   # {cat, dog}
+        'cifar10': None   # No group structure
+    }
+    return group_map.get(dataset_name, None)
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--head", type=str, required=True, choices=["mlp", "kan"])
-    ap.add_argument("--dataset", type=str, default="cifar10", choices=["cifar10", "cmnist", "metashift"],
-                    help="Dataset to use: cifar10, cmnist (Colored MNIST), or metashift")
+    ap.add_argument("--dataset", type=str, default="cifar10", choices=["cifar10", "cmnist", "metashift", "waterbirds"],
+                    help="Dataset to use: cifar10, cmnist (Colored MNIST), metashift, or waterbirds")
     ap.add_argument("--data_dir", type=str, default="./data")
     ap.add_argument("--epochs", type=int, default=200)
     ap.add_argument("--batch_size", type=int, default=128)
@@ -716,7 +925,19 @@ def main():
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.wd)
     criterion = nn.CrossEntropyLoss()
     
+    # Determine number of groups for this dataset
+    num_groups = get_num_groups(args.dataset)
+    
     best_acc = 0.0
+    last_10_accs = deque(maxlen=10)
+    
+    # Track worst-group metrics if applicable
+    if num_groups is not None:
+        best_worst_group_acc = 0.0
+        last_10_worst_group_accs = deque(maxlen=10)
+        print(f"Group tracking enabled: {num_groups} groups")
+        print()
+    
     start_time = time.time()
     for epoch in range(args.epochs):
         # Update KAN grid at the start of each epoch (for KAN models only)
@@ -724,7 +945,12 @@ def main():
             model.eval()
             with torch.no_grad():
                 # Get a batch of data to update the grid
-                inputs, _ = next(iter(trainloader))
+                batch = next(iter(trainloader))
+                # Handle both 2-tuple and 3-tuple
+                if len(batch) == 3:
+                    inputs, _, _ = batch
+                else:
+                    inputs, _ = batch
                 inputs = inputs.to(device)
                 
                 # Forward pass through the model to update grids with correct inputs
@@ -738,11 +964,28 @@ def main():
             model.train()
         
         train_loss, train_acc = train_one_epoch(model, trainloader, criterion, optimizer, device, epoch=epoch+1, kan_reg_weight=args.kan_reg_weight)
-        test_loss, test_acc = evaluate(model, testloader, criterion, device)
+        test_loss, test_acc, worst_group_acc = evaluate(model, testloader, criterion, device, num_groups=num_groups)
+        last_10_accs.append(test_acc)
+        avg_10_acc = sum(last_10_accs) / len(last_10_accs)
+        
+        # Build log message
+        log_msg = f"Ep {epoch+1}/{args.epochs} | Loss: {train_loss:.4f} | Test Loss: {test_loss:.4f} | Train: {train_acc:.1f}% | Test: {test_acc:.1f}% | Avg10: {avg_10_acc:.1f}% | Best: {best_acc:.1f}%"
+        
+        # Add worst-group metrics if applicable
+        if num_groups is not None and worst_group_acc is not None:
+            last_10_worst_group_accs.append(worst_group_acc)
+            avg_10_worst_group = sum(last_10_worst_group_accs) / len(last_10_worst_group_accs)
+            log_msg += f" | WG: {worst_group_acc:.1f}% | WG-Avg10: {avg_10_worst_group:.1f}% | WG-Best: {best_worst_group_acc:.1f}%"
+        
         if test_acc > best_acc:
             best_acc = test_acc
             torch.save(model.state_dict(), args.save_path)
-        print(f"Ep {epoch+1}/{args.epochs} | Loss: {train_loss:.4f} | Test Loss: {test_loss:.4f} | Train: {train_acc:.1f}% | Test: {test_acc:.1f}% | Best: {best_acc:.1f}%")
+        
+        # Update best worst-group accuracy
+        if num_groups is not None and worst_group_acc is not None and worst_group_acc > best_worst_group_acc:
+            best_worst_group_acc = worst_group_acc
+            
+        print(log_msg)
     
     end_time = time.time()
     total_time = end_time - start_time
@@ -750,7 +993,9 @@ def main():
     print("="*60)
     print(f"Training completed!")
     print(f"Total training time: {total_time:.2f}s ({total_time/60:.2f}m)")
-    print(f"Best test accuracy: {best_acc:.2f}%")
+    print(f"Average over last 10 epochs test accuracy: {avg_10_acc:.2f}%")
+    if num_groups is not None:
+        print(f"Average over last 10 epochs worst-group accuracy: {avg_10_worst_group:.2f}%")
     print(f"Model saved to: {args.save_path}")
     print(f"Log saved to: {log_file}")
     print("="*60)

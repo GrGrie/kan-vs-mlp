@@ -1,0 +1,226 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: cifar10
+Head: kan
+Hidden dim: 2048
+Epochs: 200
+Batch size: 128
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.01
+Seed: 42
+Device: cuda
+Log file: .\logs\train_cifar10_kan_h2048_e200_20260207_124445.txt
+============================================================
+
+Dataset: CIFAR10 | Device: cuda | Model: KAN | Params: 21,864,512
+
+Ep 1/200 | Loss: 2.0397 | Test Loss: 1.4848 | Train: 34.9% | Test: 44.9% | Avg10: 44.9% | Best: 44.9%
+Ep 2/200 | Loss: 1.6711 | Test Loss: 1.3128 | Train: 47.8% | Test: 51.5% | Avg10: 48.2% | Best: 51.5%
+Ep 3/200 | Loss: 1.5184 | Test Loss: 1.2259 | Train: 53.8% | Test: 56.0% | Avg10: 50.8% | Best: 56.0%
+Ep 4/200 | Loss: 1.3946 | Test Loss: 1.1232 | Train: 58.5% | Test: 59.8% | Avg10: 53.1% | Best: 59.8%
+Ep 5/200 | Loss: 1.2967 | Test Loss: 1.0357 | Train: 62.3% | Test: 63.0% | Avg10: 55.1% | Best: 63.0%
+Ep 6/200 | Loss: 1.2200 | Test Loss: 0.9375 | Train: 65.2% | Test: 66.5% | Avg10: 57.0% | Best: 66.5%
+Ep 7/200 | Loss: 1.1508 | Test Loss: 0.8750 | Train: 67.8% | Test: 68.6% | Avg10: 58.6% | Best: 68.6%
+Ep 8/200 | Loss: 1.0968 | Test Loss: 0.8671 | Train: 69.8% | Test: 69.1% | Avg10: 59.9% | Best: 69.1%
+Ep 9/200 | Loss: 1.0420 | Test Loss: 0.7894 | Train: 71.8% | Test: 72.3% | Avg10: 61.3% | Best: 72.3%
+Ep 10/200 | Loss: 0.9955 | Test Loss: 0.7443 | Train: 73.4% | Test: 74.2% | Avg10: 62.6% | Best: 74.2%
+Ep 11/200 | Loss: 0.9537 | Test Loss: 0.7502 | Train: 74.8% | Test: 74.1% | Avg10: 65.5% | Best: 74.2%
+Ep 12/200 | Loss: 0.9151 | Test Loss: 0.7418 | Train: 76.3% | Test: 73.9% | Avg10: 67.7% | Best: 74.2%
+Ep 13/200 | Loss: 0.8816 | Test Loss: 0.6889 | Train: 77.8% | Test: 76.5% | Avg10: 69.8% | Best: 76.5%
+Ep 14/200 | Loss: 0.8479 | Test Loss: 0.6479 | Train: 79.0% | Test: 77.2% | Avg10: 71.5% | Best: 77.2%
+Ep 15/200 | Loss: 0.8172 | Test Loss: 0.6631 | Train: 79.8% | Test: 77.3% | Avg10: 73.0% | Best: 77.3%
+Ep 16/200 | Loss: 0.7900 | Test Loss: 0.6005 | Train: 81.0% | Test: 79.4% | Avg10: 74.2% | Best: 79.4%
+Ep 17/200 | Loss: 0.7667 | Test Loss: 0.6195 | Train: 81.6% | Test: 79.0% | Avg10: 75.3% | Best: 79.4%
+Ep 18/200 | Loss: 0.7424 | Test Loss: 0.5851 | Train: 82.5% | Test: 79.9% | Avg10: 76.4% | Best: 79.9%
+Ep 19/200 | Loss: 0.7252 | Test Loss: 0.5894 | Train: 83.3% | Test: 80.3% | Avg10: 77.2% | Best: 80.3%
+Ep 20/200 | Loss: 0.7030 | Test Loss: 0.5386 | Train: 84.0% | Test: 81.5% | Avg10: 77.9% | Best: 81.5%
+Ep 21/200 | Loss: 0.6884 | Test Loss: 0.5523 | Train: 84.4% | Test: 81.4% | Avg10: 78.6% | Best: 81.5%
+Ep 22/200 | Loss: 0.6678 | Test Loss: 0.5618 | Train: 85.3% | Test: 80.9% | Avg10: 79.3% | Best: 81.5%
+Ep 23/200 | Loss: 0.6546 | Test Loss: 0.5678 | Train: 85.9% | Test: 80.7% | Avg10: 79.8% | Best: 81.5%
+Ep 24/200 | Loss: 0.6355 | Test Loss: 0.5381 | Train: 86.5% | Test: 81.6% | Avg10: 80.2% | Best: 81.6%
+Ep 25/200 | Loss: 0.6257 | Test Loss: 0.4968 | Train: 86.6% | Test: 83.3% | Avg10: 80.8% | Best: 83.3%
+Ep 26/200 | Loss: 0.6075 | Test Loss: 0.4945 | Train: 87.5% | Test: 83.2% | Avg10: 81.2% | Best: 83.3%
+Ep 27/200 | Loss: 0.5950 | Test Loss: 0.4559 | Train: 87.9% | Test: 84.7% | Avg10: 81.7% | Best: 84.7%
+Ep 28/200 | Loss: 0.5767 | Test Loss: 0.4887 | Train: 88.4% | Test: 83.7% | Avg10: 82.1% | Best: 84.7%
+Ep 29/200 | Loss: 0.5755 | Test Loss: 0.4679 | Train: 88.4% | Test: 84.4% | Avg10: 82.5% | Best: 84.7%
+Ep 30/200 | Loss: 0.5579 | Test Loss: 0.4839 | Train: 89.1% | Test: 84.0% | Avg10: 82.8% | Best: 84.7%
+Ep 31/200 | Loss: 0.5426 | Test Loss: 0.5268 | Train: 89.7% | Test: 83.0% | Avg10: 82.9% | Best: 84.7%
+Ep 32/200 | Loss: 0.5345 | Test Loss: 0.4962 | Train: 89.9% | Test: 83.7% | Avg10: 83.2% | Best: 84.7%
+Ep 33/200 | Loss: 0.5248 | Test Loss: 0.4601 | Train: 90.4% | Test: 84.8% | Avg10: 83.6% | Best: 84.8%
+Ep 34/200 | Loss: 0.5134 | Test Loss: 0.4476 | Train: 90.5% | Test: 85.2% | Avg10: 84.0% | Best: 85.2%
+Ep 35/200 | Loss: 0.5032 | Test Loss: 0.4807 | Train: 91.1% | Test: 84.4% | Avg10: 84.1% | Best: 85.2%
+Ep 36/200 | Loss: 0.4980 | Test Loss: 0.4064 | Train: 91.2% | Test: 86.6% | Avg10: 84.4% | Best: 86.6%
+Ep 37/200 | Loss: 0.4880 | Test Loss: 0.4677 | Train: 91.6% | Test: 85.2% | Avg10: 84.5% | Best: 86.6%
+Ep 38/200 | Loss: 0.4819 | Test Loss: 0.4309 | Train: 91.7% | Test: 85.3% | Avg10: 84.7% | Best: 86.6%
+Ep 39/200 | Loss: 0.4723 | Test Loss: 0.4691 | Train: 92.1% | Test: 84.5% | Avg10: 84.7% | Best: 86.6%
+Ep 40/200 | Loss: 0.4646 | Test Loss: 0.4526 | Train: 92.3% | Test: 85.2% | Avg10: 84.8% | Best: 86.6%
+Ep 41/200 | Loss: 0.4585 | Test Loss: 0.4617 | Train: 92.7% | Test: 85.4% | Avg10: 85.0% | Best: 86.6%
+Ep 42/200 | Loss: 0.4497 | Test Loss: 0.4334 | Train: 92.9% | Test: 86.0% | Avg10: 85.3% | Best: 86.6%
+Ep 43/200 | Loss: 0.4486 | Test Loss: 0.4562 | Train: 93.0% | Test: 85.2% | Avg10: 85.3% | Best: 86.6%
+Ep 44/200 | Loss: 0.4393 | Test Loss: 0.4015 | Train: 93.3% | Test: 86.6% | Avg10: 85.5% | Best: 86.6%
+Ep 45/200 | Loss: 0.4310 | Test Loss: 0.3879 | Train: 93.7% | Test: 87.6% | Avg10: 85.8% | Best: 87.6%
+Ep 46/200 | Loss: 0.4272 | Test Loss: 0.3797 | Train: 93.6% | Test: 88.1% | Avg10: 85.9% | Best: 88.1%
+Ep 47/200 | Loss: 0.4223 | Test Loss: 0.4533 | Train: 93.9% | Test: 85.7% | Avg10: 86.0% | Best: 88.1%
+Ep 48/200 | Loss: 0.4171 | Test Loss: 0.3857 | Train: 94.0% | Test: 87.7% | Avg10: 86.2% | Best: 88.1%
+Ep 49/200 | Loss: 0.4126 | Test Loss: 0.4217 | Train: 94.0% | Test: 86.1% | Avg10: 86.4% | Best: 88.1%
+Ep 50/200 | Loss: 0.4065 | Test Loss: 0.3966 | Train: 94.3% | Test: 87.4% | Avg10: 86.6% | Best: 88.1%
+Ep 51/200 | Loss: 0.4046 | Test Loss: 0.4292 | Train: 94.5% | Test: 86.6% | Avg10: 86.7% | Best: 88.1%
+Ep 52/200 | Loss: 0.4011 | Test Loss: 0.3896 | Train: 94.6% | Test: 87.9% | Avg10: 86.9% | Best: 88.1%
+Ep 53/200 | Loss: 0.3985 | Test Loss: 0.4016 | Train: 94.7% | Test: 87.3% | Avg10: 87.1% | Best: 88.1%
+Ep 54/200 | Loss: 0.3902 | Test Loss: 0.3716 | Train: 95.1% | Test: 88.1% | Avg10: 87.2% | Best: 88.1%
+Ep 55/200 | Loss: 0.3910 | Test Loss: 0.3858 | Train: 94.9% | Test: 88.0% | Avg10: 87.3% | Best: 88.1%
+Ep 56/200 | Loss: 0.3846 | Test Loss: 0.4192 | Train: 95.2% | Test: 87.0% | Avg10: 87.2% | Best: 88.1%
+Ep 57/200 | Loss: 0.3838 | Test Loss: 0.3696 | Train: 95.2% | Test: 88.6% | Avg10: 87.5% | Best: 88.6%
+Ep 58/200 | Loss: 0.3802 | Test Loss: 0.4686 | Train: 95.4% | Test: 86.0% | Avg10: 87.3% | Best: 88.6%
+Ep 59/200 | Loss: 0.3746 | Test Loss: 0.4541 | Train: 95.4% | Test: 86.2% | Avg10: 87.3% | Best: 88.6%
+Ep 60/200 | Loss: 0.3721 | Test Loss: 0.3990 | Train: 95.7% | Test: 87.6% | Avg10: 87.3% | Best: 88.6%
+Ep 61/200 | Loss: 0.3721 | Test Loss: 0.3793 | Train: 95.7% | Test: 88.3% | Avg10: 87.5% | Best: 88.6%
+Ep 62/200 | Loss: 0.3673 | Test Loss: 0.3890 | Train: 95.8% | Test: 87.9% | Avg10: 87.5% | Best: 88.6%
+Ep 63/200 | Loss: 0.3626 | Test Loss: 0.4055 | Train: 95.9% | Test: 87.5% | Avg10: 87.5% | Best: 88.6%
+Ep 64/200 | Loss: 0.3669 | Test Loss: 0.4367 | Train: 95.8% | Test: 86.4% | Avg10: 87.4% | Best: 88.6%
+Ep 65/200 | Loss: 0.3589 | Test Loss: 0.4105 | Train: 96.2% | Test: 88.1% | Avg10: 87.4% | Best: 88.6%
+Ep 66/200 | Loss: 0.3588 | Test Loss: 0.3802 | Train: 96.1% | Test: 88.4% | Avg10: 87.5% | Best: 88.6%
+Ep 67/200 | Loss: 0.3561 | Test Loss: 0.4046 | Train: 96.2% | Test: 87.4% | Avg10: 87.4% | Best: 88.6%
+Ep 68/200 | Loss: 0.3590 | Test Loss: 0.3595 | Train: 96.1% | Test: 89.0% | Avg10: 87.7% | Best: 89.0%
+Ep 69/200 | Loss: 0.3556 | Test Loss: 0.3769 | Train: 96.2% | Test: 88.6% | Avg10: 87.9% | Best: 89.0%
+Ep 70/200 | Loss: 0.3474 | Test Loss: 0.4316 | Train: 96.5% | Test: 87.0% | Avg10: 87.8% | Best: 89.0%
+Ep 71/200 | Loss: 0.3535 | Test Loss: 0.4433 | Train: 96.3% | Test: 86.5% | Avg10: 87.7% | Best: 89.0%
+Ep 72/200 | Loss: 0.3488 | Test Loss: 0.3886 | Train: 96.5% | Test: 88.2% | Avg10: 87.7% | Best: 89.0%
+Ep 73/200 | Loss: 0.3451 | Test Loss: 0.4360 | Train: 96.6% | Test: 87.2% | Avg10: 87.7% | Best: 89.0%
+Ep 74/200 | Loss: 0.3503 | Test Loss: 0.3553 | Train: 96.3% | Test: 89.5% | Avg10: 88.0% | Best: 89.5%
+Ep 75/200 | Loss: 0.3430 | Test Loss: 0.3809 | Train: 96.6% | Test: 88.5% | Avg10: 88.0% | Best: 89.5%
+Ep 76/200 | Loss: 0.3437 | Test Loss: 0.3878 | Train: 96.7% | Test: 88.5% | Avg10: 88.0% | Best: 89.5%
+Ep 77/200 | Loss: 0.3412 | Test Loss: 0.4216 | Train: 96.8% | Test: 87.8% | Avg10: 88.1% | Best: 89.5%
+Ep 78/200 | Loss: 0.3452 | Test Loss: 0.4087 | Train: 96.6% | Test: 88.1% | Avg10: 88.0% | Best: 89.5%
+Ep 79/200 | Loss: 0.3406 | Test Loss: 0.4187 | Train: 96.7% | Test: 87.7% | Avg10: 87.9% | Best: 89.5%
+Ep 80/200 | Loss: 0.3402 | Test Loss: 0.3751 | Train: 96.8% | Test: 88.7% | Avg10: 88.1% | Best: 89.5%
+Ep 81/200 | Loss: 0.3406 | Test Loss: 0.4658 | Train: 96.7% | Test: 86.6% | Avg10: 88.1% | Best: 89.5%
+Ep 82/200 | Loss: 0.3358 | Test Loss: 0.3695 | Train: 96.9% | Test: 89.4% | Avg10: 88.2% | Best: 89.5%
+Ep 83/200 | Loss: 0.3364 | Test Loss: 0.3955 | Train: 97.0% | Test: 88.8% | Avg10: 88.4% | Best: 89.5%
+Ep 84/200 | Loss: 0.3374 | Test Loss: 0.3983 | Train: 96.8% | Test: 88.1% | Avg10: 88.2% | Best: 89.5%
+Ep 85/200 | Loss: 0.3359 | Test Loss: 0.3747 | Train: 96.9% | Test: 89.1% | Avg10: 88.3% | Best: 89.5%
+Ep 86/200 | Loss: 0.3355 | Test Loss: 0.3808 | Train: 96.9% | Test: 89.0% | Avg10: 88.3% | Best: 89.5%
+Ep 87/200 | Loss: 0.3320 | Test Loss: 0.3674 | Train: 97.0% | Test: 89.2% | Avg10: 88.5% | Best: 89.5%
+Ep 88/200 | Loss: 0.3300 | Test Loss: 0.3551 | Train: 97.0% | Test: 89.7% | Avg10: 88.6% | Best: 89.7%
+Ep 89/200 | Loss: 0.3348 | Test Loss: 0.4016 | Train: 96.9% | Test: 88.4% | Avg10: 88.7% | Best: 89.7%
+Ep 90/200 | Loss: 0.3272 | Test Loss: 0.3936 | Train: 97.1% | Test: 88.8% | Avg10: 88.7% | Best: 89.7%
+Ep 91/200 | Loss: 0.3330 | Test Loss: 0.3818 | Train: 97.0% | Test: 89.1% | Avg10: 89.0% | Best: 89.7%
+Ep 92/200 | Loss: 0.3281 | Test Loss: 0.3998 | Train: 97.1% | Test: 88.4% | Avg10: 88.9% | Best: 89.7%
+Ep 93/200 | Loss: 0.3250 | Test Loss: 0.3932 | Train: 97.2% | Test: 89.0% | Avg10: 88.9% | Best: 89.7%
+Ep 94/200 | Loss: 0.3264 | Test Loss: 0.3926 | Train: 97.1% | Test: 88.5% | Avg10: 88.9% | Best: 89.7%
+Ep 95/200 | Loss: 0.3248 | Test Loss: 0.4171 | Train: 97.2% | Test: 88.4% | Avg10: 88.8% | Best: 89.7%
+Ep 96/200 | Loss: 0.3277 | Test Loss: 0.4366 | Train: 97.1% | Test: 88.3% | Avg10: 88.8% | Best: 89.7%
+Ep 97/200 | Loss: 0.3250 | Test Loss: 0.3475 | Train: 97.2% | Test: 90.0% | Avg10: 88.9% | Best: 90.0%
+Ep 98/200 | Loss: 0.3236 | Test Loss: 0.3318 | Train: 97.3% | Test: 90.6% | Avg10: 89.0% | Best: 90.6%
+Ep 99/200 | Loss: 0.3233 | Test Loss: 0.3707 | Train: 97.2% | Test: 89.8% | Avg10: 89.1% | Best: 90.6%
+Ep 100/200 | Loss: 0.3213 | Test Loss: 0.3998 | Train: 97.5% | Test: 89.2% | Avg10: 89.1% | Best: 90.6%
+Ep 101/200 | Loss: 0.3208 | Test Loss: 0.3501 | Train: 97.5% | Test: 90.1% | Avg10: 89.2% | Best: 90.6%
+Ep 102/200 | Loss: 0.3225 | Test Loss: 0.3782 | Train: 97.3% | Test: 89.2% | Avg10: 89.3% | Best: 90.6%
+Ep 103/200 | Loss: 0.3211 | Test Loss: 0.3642 | Train: 97.3% | Test: 89.7% | Avg10: 89.4% | Best: 90.6%
+Ep 104/200 | Loss: 0.3209 | Test Loss: 0.3660 | Train: 97.4% | Test: 89.8% | Avg10: 89.5% | Best: 90.6%
+Ep 105/200 | Loss: 0.3175 | Test Loss: 0.4040 | Train: 97.5% | Test: 88.8% | Avg10: 89.6% | Best: 90.6%
+Ep 106/200 | Loss: 0.3171 | Test Loss: 0.3631 | Train: 97.5% | Test: 90.1% | Avg10: 89.8% | Best: 90.6%
+Ep 107/200 | Loss: 0.3204 | Test Loss: 0.3446 | Train: 97.3% | Test: 90.2% | Avg10: 89.8% | Best: 90.6%
+Ep 108/200 | Loss: 0.3177 | Test Loss: 0.3794 | Train: 97.5% | Test: 89.8% | Avg10: 89.7% | Best: 90.6%
+Ep 109/200 | Loss: 0.3180 | Test Loss: 0.3616 | Train: 97.5% | Test: 89.8% | Avg10: 89.7% | Best: 90.6%
+Ep 110/200 | Loss: 0.3171 | Test Loss: 0.3474 | Train: 97.6% | Test: 90.0% | Avg10: 89.8% | Best: 90.6%
+Ep 111/200 | Loss: 0.3173 | Test Loss: 0.3654 | Train: 97.5% | Test: 90.2% | Avg10: 89.8% | Best: 90.6%
+Ep 112/200 | Loss: 0.3145 | Test Loss: 0.3917 | Train: 97.6% | Test: 89.5% | Avg10: 89.8% | Best: 90.6%
+Ep 113/200 | Loss: 0.3131 | Test Loss: 0.3567 | Train: 97.6% | Test: 90.3% | Avg10: 89.9% | Best: 90.6%
+Ep 114/200 | Loss: 0.3142 | Test Loss: 0.3567 | Train: 97.6% | Test: 90.2% | Avg10: 89.9% | Best: 90.6%
+Ep 115/200 | Loss: 0.3146 | Test Loss: 0.3746 | Train: 97.6% | Test: 89.5% | Avg10: 90.0% | Best: 90.6%
+Ep 116/200 | Loss: 0.3116 | Test Loss: 0.3612 | Train: 97.7% | Test: 89.6% | Avg10: 89.9% | Best: 90.6%
+Ep 117/200 | Loss: 0.3133 | Test Loss: 0.3488 | Train: 97.6% | Test: 90.1% | Avg10: 89.9% | Best: 90.6%
+Ep 118/200 | Loss: 0.3109 | Test Loss: 0.3677 | Train: 97.7% | Test: 89.9% | Avg10: 89.9% | Best: 90.6%
+Ep 119/200 | Loss: 0.3121 | Test Loss: 0.3564 | Train: 97.8% | Test: 90.2% | Avg10: 90.0% | Best: 90.6%
+Ep 120/200 | Loss: 0.3116 | Test Loss: 0.3824 | Train: 97.7% | Test: 89.7% | Avg10: 89.9% | Best: 90.6%
+Ep 121/200 | Loss: 0.3099 | Test Loss: 0.4057 | Train: 97.8% | Test: 89.1% | Avg10: 89.8% | Best: 90.6%
+Ep 122/200 | Loss: 0.3097 | Test Loss: 0.3600 | Train: 97.8% | Test: 89.9% | Avg10: 89.9% | Best: 90.6%
+Ep 123/200 | Loss: 0.3112 | Test Loss: 0.3917 | Train: 97.7% | Test: 89.3% | Avg10: 89.8% | Best: 90.6%
+Ep 124/200 | Loss: 0.3110 | Test Loss: 0.3810 | Train: 97.8% | Test: 89.7% | Avg10: 89.7% | Best: 90.6%
+Ep 125/200 | Loss: 0.3121 | Test Loss: 0.3805 | Train: 97.8% | Test: 90.0% | Avg10: 89.8% | Best: 90.6%
+Ep 126/200 | Loss: 0.3109 | Test Loss: 0.3931 | Train: 97.8% | Test: 89.5% | Avg10: 89.7% | Best: 90.6%
+Ep 127/200 | Loss: 0.3084 | Test Loss: 0.3232 | Train: 97.8% | Test: 91.1% | Avg10: 89.8% | Best: 91.1%
+Ep 128/200 | Loss: 0.3096 | Test Loss: 0.3476 | Train: 97.8% | Test: 90.6% | Avg10: 89.9% | Best: 91.1%
+Ep 129/200 | Loss: 0.3103 | Test Loss: 0.3391 | Train: 97.8% | Test: 90.8% | Avg10: 90.0% | Best: 91.1%
+Ep 130/200 | Loss: 0.3054 | Test Loss: 0.3754 | Train: 98.0% | Test: 90.0% | Avg10: 90.0% | Best: 91.1%
+Ep 131/200 | Loss: 0.3100 | Test Loss: 0.3289 | Train: 97.8% | Test: 90.7% | Avg10: 90.2% | Best: 91.1%
+Ep 132/200 | Loss: 0.3082 | Test Loss: 0.3720 | Train: 97.8% | Test: 90.0% | Avg10: 90.2% | Best: 91.1%
+Ep 133/200 | Loss: 0.3083 | Test Loss: 0.3868 | Train: 97.8% | Test: 90.0% | Avg10: 90.2% | Best: 91.1%
+Ep 134/200 | Loss: 0.3111 | Test Loss: 0.3422 | Train: 97.7% | Test: 90.8% | Avg10: 90.3% | Best: 91.1%
+Ep 135/200 | Loss: 0.3052 | Test Loss: 0.3670 | Train: 97.9% | Test: 90.6% | Avg10: 90.4% | Best: 91.1%
+Ep 136/200 | Loss: 0.3086 | Test Loss: 0.3406 | Train: 97.8% | Test: 90.8% | Avg10: 90.5% | Best: 91.1%
+Ep 137/200 | Loss: 0.3037 | Test Loss: 0.3581 | Train: 98.0% | Test: 90.6% | Avg10: 90.5% | Best: 91.1%
+Ep 138/200 | Loss: 0.3083 | Test Loss: 0.3492 | Train: 97.9% | Test: 90.8% | Avg10: 90.5% | Best: 91.1%
+Ep 139/200 | Loss: 0.3034 | Test Loss: 0.3639 | Train: 98.1% | Test: 90.2% | Avg10: 90.4% | Best: 91.1%
+Ep 140/200 | Loss: 0.3052 | Test Loss: 0.3382 | Train: 98.0% | Test: 91.1% | Avg10: 90.6% | Best: 91.1%
+Ep 141/200 | Loss: 0.3038 | Test Loss: 0.3557 | Train: 97.9% | Test: 90.3% | Avg10: 90.5% | Best: 91.1%
+Ep 142/200 | Loss: 0.3046 | Test Loss: 0.3335 | Train: 98.0% | Test: 91.3% | Avg10: 90.6% | Best: 91.3%
+Ep 143/200 | Loss: 0.3055 | Test Loss: 0.3817 | Train: 97.9% | Test: 90.0% | Avg10: 90.6% | Best: 91.3%
+Ep 144/200 | Loss: 0.3051 | Test Loss: 0.3517 | Train: 98.0% | Test: 90.7% | Avg10: 90.6% | Best: 91.3%
+Ep 145/200 | Loss: 0.3053 | Test Loss: 0.3692 | Train: 97.8% | Test: 90.2% | Avg10: 90.6% | Best: 91.3%
+Ep 146/200 | Loss: 0.3033 | Test Loss: 0.3616 | Train: 98.1% | Test: 90.5% | Avg10: 90.6% | Best: 91.3%
+Ep 147/200 | Loss: 0.3046 | Test Loss: 0.3399 | Train: 97.9% | Test: 90.8% | Avg10: 90.6% | Best: 91.3%
+Ep 148/200 | Loss: 0.3040 | Test Loss: 0.3988 | Train: 98.1% | Test: 89.6% | Avg10: 90.5% | Best: 91.3%
+Ep 149/200 | Loss: 0.3039 | Test Loss: 0.3411 | Train: 98.0% | Test: 90.7% | Avg10: 90.5% | Best: 91.3%
+Ep 150/200 | Loss: 0.3017 | Test Loss: 0.3422 | Train: 98.1% | Test: 90.9% | Avg10: 90.5% | Best: 91.3%
+Ep 151/200 | Loss: 0.3046 | Test Loss: 0.3487 | Train: 98.1% | Test: 90.6% | Avg10: 90.5% | Best: 91.3%
+Ep 152/200 | Loss: 0.3040 | Test Loss: 0.3649 | Train: 98.0% | Test: 90.5% | Avg10: 90.4% | Best: 91.3%
+Ep 153/200 | Loss: 0.3014 | Test Loss: 0.3302 | Train: 98.1% | Test: 91.0% | Avg10: 90.6% | Best: 91.3%
+Ep 154/200 | Loss: 0.3065 | Test Loss: 0.3688 | Train: 97.9% | Test: 90.3% | Avg10: 90.5% | Best: 91.3%
+Ep 155/200 | Loss: 0.3019 | Test Loss: 0.3777 | Train: 98.1% | Test: 90.4% | Avg10: 90.5% | Best: 91.3%
+Ep 156/200 | Loss: 0.3035 | Test Loss: 0.3586 | Train: 97.9% | Test: 90.8% | Avg10: 90.6% | Best: 91.3%
+Ep 157/200 | Loss: 0.3012 | Test Loss: 0.3990 | Train: 98.0% | Test: 89.9% | Avg10: 90.5% | Best: 91.3%
+Ep 158/200 | Loss: 0.3048 | Test Loss: 0.3774 | Train: 98.0% | Test: 90.1% | Avg10: 90.5% | Best: 91.3%
+Ep 159/200 | Loss: 0.3005 | Test Loss: 0.3447 | Train: 98.1% | Test: 91.1% | Avg10: 90.5% | Best: 91.3%
+Ep 160/200 | Loss: 0.3028 | Test Loss: 0.3670 | Train: 98.0% | Test: 90.5% | Avg10: 90.5% | Best: 91.3%
+Ep 161/200 | Loss: 0.3025 | Test Loss: 0.3575 | Train: 98.0% | Test: 90.3% | Avg10: 90.5% | Best: 91.3%
+Ep 162/200 | Loss: 0.3029 | Test Loss: 0.3693 | Train: 98.1% | Test: 90.2% | Avg10: 90.5% | Best: 91.3%
+Ep 163/200 | Loss: 0.3017 | Test Loss: 0.3125 | Train: 98.2% | Test: 91.3% | Avg10: 90.5% | Best: 91.3%
+Ep 164/200 | Loss: 0.3023 | Test Loss: 0.3487 | Train: 98.1% | Test: 90.5% | Avg10: 90.5% | Best: 91.3%
+Ep 165/200 | Loss: 0.3007 | Test Loss: 0.3538 | Train: 98.1% | Test: 90.8% | Avg10: 90.5% | Best: 91.3%
+Ep 166/200 | Loss: 0.3032 | Test Loss: 0.3290 | Train: 98.1% | Test: 91.5% | Avg10: 90.6% | Best: 91.5%
+Ep 167/200 | Loss: 0.3003 | Test Loss: 0.3430 | Train: 98.1% | Test: 91.0% | Avg10: 90.7% | Best: 91.5%
+Ep 168/200 | Loss: 0.3050 | Test Loss: 0.4038 | Train: 98.0% | Test: 89.3% | Avg10: 90.7% | Best: 91.5%
+Ep 169/200 | Loss: 0.3020 | Test Loss: 0.3463 | Train: 98.1% | Test: 90.9% | Avg10: 90.6% | Best: 91.5%
+Ep 170/200 | Loss: 0.2988 | Test Loss: 0.3425 | Train: 98.2% | Test: 91.1% | Avg10: 90.7% | Best: 91.5%
+Ep 171/200 | Loss: 0.2997 | Test Loss: 0.3632 | Train: 98.2% | Test: 90.8% | Avg10: 90.7% | Best: 91.5%
+Ep 172/200 | Loss: 0.3014 | Test Loss: 0.3351 | Train: 98.1% | Test: 91.4% | Avg10: 90.9% | Best: 91.5%
+Ep 173/200 | Loss: 0.3033 | Test Loss: 0.3535 | Train: 98.1% | Test: 91.1% | Avg10: 90.8% | Best: 91.5%
+Ep 174/200 | Loss: 0.3016 | Test Loss: 0.3700 | Train: 98.2% | Test: 90.3% | Avg10: 90.8% | Best: 91.5%
+Ep 175/200 | Loss: 0.3022 | Test Loss: 0.3242 | Train: 98.0% | Test: 91.6% | Avg10: 90.9% | Best: 91.6%
+Ep 176/200 | Loss: 0.3007 | Test Loss: 0.3554 | Train: 98.2% | Test: 90.8% | Avg10: 90.8% | Best: 91.6%
+Ep 177/200 | Loss: 0.2991 | Test Loss: 0.3905 | Train: 98.2% | Test: 89.8% | Avg10: 90.7% | Best: 91.6%
+Ep 178/200 | Loss: 0.2996 | Test Loss: 0.3532 | Train: 98.2% | Test: 90.9% | Avg10: 90.9% | Best: 91.6%
+Ep 179/200 | Loss: 0.2994 | Test Loss: 0.3497 | Train: 98.2% | Test: 91.0% | Avg10: 90.9% | Best: 91.6%
+Ep 180/200 | Loss: 0.3010 | Test Loss: 0.3218 | Train: 98.2% | Test: 91.5% | Avg10: 90.9% | Best: 91.6%
+Ep 181/200 | Loss: 0.2972 | Test Loss: 0.3245 | Train: 98.3% | Test: 91.5% | Avg10: 91.0% | Best: 91.6%
+Ep 182/200 | Loss: 0.2982 | Test Loss: 0.3312 | Train: 98.2% | Test: 91.4% | Avg10: 91.0% | Best: 91.6%
+Ep 183/200 | Loss: 0.2977 | Test Loss: 0.3288 | Train: 98.3% | Test: 91.5% | Avg10: 91.0% | Best: 91.6%
+Ep 184/200 | Loss: 0.2978 | Test Loss: 0.3594 | Train: 98.2% | Test: 90.7% | Avg10: 91.1% | Best: 91.6%
+Ep 185/200 | Loss: 0.3012 | Test Loss: 0.3500 | Train: 98.2% | Test: 91.2% | Avg10: 91.0% | Best: 91.6%
+Ep 186/200 | Loss: 0.2995 | Test Loss: 0.3455 | Train: 98.2% | Test: 91.1% | Avg10: 91.1% | Best: 91.6%
+Ep 187/200 | Loss: 0.2998 | Test Loss: 0.3561 | Train: 98.2% | Test: 90.7% | Avg10: 91.1% | Best: 91.6%
+Ep 188/200 | Loss: 0.2970 | Test Loss: 0.3187 | Train: 98.3% | Test: 91.5% | Avg10: 91.2% | Best: 91.6%
+Ep 189/200 | Loss: 0.2980 | Test Loss: 0.3320 | Train: 98.2% | Test: 91.5% | Avg10: 91.3% | Best: 91.6%
+Ep 190/200 | Loss: 0.3028 | Test Loss: 0.3330 | Train: 98.2% | Test: 91.5% | Avg10: 91.3% | Best: 91.6%
+Ep 191/200 | Loss: 0.2988 | Test Loss: 0.3511 | Train: 98.2% | Test: 90.9% | Avg10: 91.2% | Best: 91.6%
+Ep 192/200 | Loss: 0.3005 | Test Loss: 0.3337 | Train: 98.2% | Test: 91.2% | Avg10: 91.2% | Best: 91.6%
+Ep 193/200 | Loss: 0.2982 | Test Loss: 0.3688 | Train: 98.2% | Test: 90.7% | Avg10: 91.1% | Best: 91.6%
+Ep 194/200 | Loss: 0.2964 | Test Loss: 0.3197 | Train: 98.2% | Test: 91.8% | Avg10: 91.2% | Best: 91.8%
+Ep 195/200 | Loss: 0.2957 | Test Loss: 0.3252 | Train: 98.3% | Test: 91.5% | Avg10: 91.2% | Best: 91.8%
+Ep 196/200 | Loss: 0.3017 | Test Loss: 0.3411 | Train: 98.2% | Test: 91.1% | Avg10: 91.2% | Best: 91.8%
+Ep 197/200 | Loss: 0.2973 | Test Loss: 0.3354 | Train: 98.3% | Test: 91.2% | Avg10: 91.3% | Best: 91.8%
+Ep 198/200 | Loss: 0.2981 | Test Loss: 0.3393 | Train: 98.3% | Test: 90.9% | Avg10: 91.2% | Best: 91.8%
+Ep 199/200 | Loss: 0.3003 | Test Loss: 0.3417 | Train: 98.2% | Test: 91.5% | Avg10: 91.2% | Best: 91.8%
+Ep 200/200 | Loss: 0.2960 | Test Loss: 0.3246 | Train: 98.3% | Test: 91.4% | Avg10: 91.2% | Best: 91.8%
+
+============================================================
+Training completed!
+Total training time: 7726.12s (128.77m)
+Best test accuracy: 91.82%
+Model saved to: ./best.pt
+Log saved to: .\logs\train_cifar10_kan_h2048_e200_20260207_124445.txt
+============================================================
