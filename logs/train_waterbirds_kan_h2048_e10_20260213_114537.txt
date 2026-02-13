@@ -1,0 +1,40 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: waterbirds
+Head: kan
+Hidden dim: 2048
+Epochs: 10
+Batch size: 128
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.01
+Seed: 42
+Device: cuda
+Log file: .\logs\train_waterbirds_kan_h2048_e10_20260213_114537.txt
+WandB: enabled
+============================================================
+
+Dataset: WATERBIRDS | Device: cuda | Model: KAN | Params: 21,708,352
+
+Group tracking enabled: 4 groups
+
+Ep 1/10 | Loss: 3.2549 | Test Loss: 0.5176 | Train: 88.2% | Test: 78.3% | Avg10: 78.3% | Best: 78.3% | WG: 33.5% | WG-Avg10: 33.5% | WG-Best: 33.5%
+Ep 2/10 | Loss: 0.4580 | Test Loss: 0.4284 | Train: 96.4% | Test: 82.4% | Avg10: 80.3% | Best: 82.4% | WG: 46.7% | WG-Avg10: 40.1% | WG-Best: 46.7%
+Ep 3/10 | Loss: 0.3424 | Test Loss: 0.3892 | Train: 97.1% | Test: 84.9% | Avg10: 81.9% | Best: 84.9% | WG: 44.2% | WG-Avg10: 41.5% | WG-Best: 46.7%
+Ep 4/10 | Loss: 0.3190 | Test Loss: 0.4111 | Train: 98.1% | Test: 84.4% | Avg10: 82.5% | Best: 84.9% | WG: 56.1% | WG-Avg10: 45.1% | WG-Best: 56.1%
+Ep 5/10 | Loss: 0.3048 | Test Loss: 0.3758 | Train: 98.5% | Test: 86.5% | Avg10: 83.3% | Best: 86.5% | WG: 53.7% | WG-Avg10: 46.9% | WG-Best: 56.1%
+Ep 6/10 | Loss: 0.2979 | Test Loss: 0.3862 | Train: 98.6% | Test: 86.3% | Avg10: 83.8% | Best: 86.5% | WG: 59.5% | WG-Avg10: 49.0% | WG-Best: 59.5%
+Ep 7/10 | Loss: 0.2890 | Test Loss: 0.4207 | Train: 99.0% | Test: 85.7% | Avg10: 84.1% | Best: 86.5% | WG: 60.1% | WG-Avg10: 50.6% | WG-Best: 60.1%
+Ep 8/10 | Loss: 0.2820 | Test Loss: 0.4182 | Train: 99.5% | Test: 86.1% | Avg10: 84.3% | Best: 86.5% | WG: 58.9% | WG-Avg10: 51.6% | WG-Best: 60.1%
+Ep 9/10 | Loss: 0.2744 | Test Loss: 0.4484 | Train: 99.6% | Test: 85.8% | Avg10: 84.5% | Best: 86.5% | WG: 58.1% | WG-Avg10: 52.3% | WG-Best: 60.1%
+Ep 10/10 | Loss: 0.2754 | Test Loss: 0.4322 | Train: 99.6% | Test: 86.5% | Avg10: 84.7% | Best: 86.5% | WG: 60.0% | WG-Avg10: 53.1% | WG-Best: 60.1%
+
+============================================================
+Training completed!
+Total training time: 299.12s (4.99m)
+Average over last 10 epochs test accuracy: 84.70%
+Average over last 10 epochs worst-group accuracy: 53.08%
+Model saved to: ./best.pt
+Log saved to: .\logs\train_waterbirds_kan_h2048_e10_20260213_114537.txt
+============================================================

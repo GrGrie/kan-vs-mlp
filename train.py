@@ -1,3 +1,7 @@
+# ==========================================
+# Example command to run:
+# python train.py --dataset waterbirds --head kan --kan_reg_weight 0.01 --epochs 10 --wandb
+# ==========================================
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -21,6 +25,8 @@ import shutil
 from datetime import datetime
 import sys
 from collections import deque
+from dotenv import load_dotenv
+import wandb
 
 # ==========================================
 # 1. Efficient KAN Linear Layer Implementation (Official)
@@ -852,6 +858,13 @@ def get_num_groups(dataset_name):
     }
     return group_map.get(dataset_name, None)
 
+def format_wandb_run_name(args):
+    run_name = f"{args.head}_seed{args.seed}"
+    if args.kan_reg_weight != 0:
+        run_name += f"_regWeight{args.kan_reg_weight}"
+    run_name += f"_{args.dataset}_lr{args.lr}"
+    return run_name
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--head", type=str, required=True, choices=["mlp", "kan"])
@@ -868,7 +881,37 @@ def main():
     ap.add_argument("--kan_reg_weight", type=float, default=0.0,
                     help="Weight for KAN regularization loss (0 disables it)")
     ap.add_argument("--no_grid_update", action="store_true", help="Disable KAN grid update")
+    ap.add_argument("--wandb", action="store_true", default=False,
+                    help="Enable Weights & Biases experiment tracking")
     args = ap.parse_args()
+
+    # ---- W&B setup (reads WANDB_API_KEY from .env) ----
+    load_dotenv()
+    if args.wandb:
+        wandb.login()
+        run_name = format_wandb_run_name(args)
+        wandb.init(project="kan-vs-mlp", name=run_name, config=vars(args))
+
+        # Canonical metric names used in logs.
+        wandb.define_metric("epoch")
+        wandb.define_metric("train/loss", step_metric="epoch", summary="min")
+        wandb.define_metric("train/acc", step_metric="epoch", summary="max")
+        wandb.define_metric("test/loss", step_metric="epoch", summary="min")
+        wandb.define_metric("test/acc", step_metric="epoch", summary="max")
+        wandb.define_metric("test/avg10_acc", step_metric="epoch", summary="max")
+        wandb.define_metric("test/best_acc", step_metric="epoch", summary="max")
+
+        # Aliases requested for clean default charts.
+        wandb.define_metric("loss", step_metric="epoch", summary="min")
+        wandb.define_metric("test_loss", step_metric="epoch", summary="min")
+        wandb.define_metric("train_accuracy", step_metric="epoch", summary="max")
+        wandb.define_metric("test_accuracy", step_metric="epoch", summary="max")
+        wandb.define_metric("avg10_accuracy", step_metric="epoch", summary="max")
+        wandb.define_metric("best_accuracy", step_metric="epoch", summary="max")
+
+        wandb.define_metric("test/worst_group_acc", step_metric="epoch", summary="max")
+        wandb.define_metric("test/worst_group_avg10", step_metric="epoch", summary="max")
+        wandb.define_metric("test/worst_group_best", step_metric="epoch", summary="max")
 
     # Create log file with unique name
     log_file = create_log_filename(args)
@@ -895,6 +938,7 @@ def main():
     print(f"Seed: {args.seed}")
     print(f"Device: {device}")
     print(f"Log file: {log_file}")
+    print(f"WandB: {'enabled' if args.wandb else 'disabled'}")
     print("="*60)
     print()
     
@@ -967,6 +1011,14 @@ def main():
         test_loss, test_acc, worst_group_acc = evaluate(model, testloader, criterion, device, num_groups=num_groups)
         last_10_accs.append(test_acc)
         avg_10_acc = sum(last_10_accs) / len(last_10_accs)
+
+        if test_acc > best_acc:
+            best_acc = test_acc
+            torch.save(model.state_dict(), args.save_path)
+
+        # Update best worst-group accuracy
+        if num_groups is not None and worst_group_acc is not None and worst_group_acc > best_worst_group_acc:
+            best_worst_group_acc = worst_group_acc
         
         # Build log message
         log_msg = f"Ep {epoch+1}/{args.epochs} | Loss: {train_loss:.4f} | Test Loss: {test_loss:.4f} | Train: {train_acc:.1f}% | Test: {test_acc:.1f}% | Avg10: {avg_10_acc:.1f}% | Best: {best_acc:.1f}%"
@@ -976,16 +1028,31 @@ def main():
             last_10_worst_group_accs.append(worst_group_acc)
             avg_10_worst_group = sum(last_10_worst_group_accs) / len(last_10_worst_group_accs)
             log_msg += f" | WG: {worst_group_acc:.1f}% | WG-Avg10: {avg_10_worst_group:.1f}% | WG-Best: {best_worst_group_acc:.1f}%"
-        
-        if test_acc > best_acc:
-            best_acc = test_acc
-            torch.save(model.state_dict(), args.save_path)
-        
-        # Update best worst-group accuracy
-        if num_groups is not None and worst_group_acc is not None and worst_group_acc > best_worst_group_acc:
-            best_worst_group_acc = worst_group_acc
             
         print(log_msg)
+        
+        # ---- W&B logging every 10 epochs ----
+        if args.wandb and (epoch + 1) % 10 == 0:
+            wb_log = {
+                "epoch": epoch + 1,
+                "train/loss": train_loss,
+                "train/acc": train_acc,
+                "test/loss": test_loss,
+                "test/acc": test_acc,
+                "test/avg10_acc": avg_10_acc,
+                "test/best_acc": best_acc,
+                "loss": train_loss,
+                "test_loss": test_loss,
+                "train_accuracy": train_acc,
+                "test_accuracy": test_acc,
+                "avg10_accuracy": avg_10_acc,
+                "best_accuracy": best_acc,
+            }
+            if num_groups is not None and worst_group_acc is not None:
+                wb_log["test/worst_group_acc"] = worst_group_acc
+                wb_log["test/worst_group_avg10"] = avg_10_worst_group
+                wb_log["test/worst_group_best"] = best_worst_group_acc
+            wandb.log(wb_log)
     
     end_time = time.time()
     total_time = end_time - start_time
@@ -999,6 +1066,10 @@ def main():
     print(f"Model saved to: {args.save_path}")
     print(f"Log saved to: {log_file}")
     print("="*60)
+    
+    # ---- W&B finish ----
+    if args.wandb:
+        wandb.finish()
     
     # Restore stdout
     sys.stdout = logger.terminal
