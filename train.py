@@ -365,7 +365,7 @@ class Logger:
 def create_log_filename(args):
     """Create unique log filename based on configuration and timestamp"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_name = f"train_{args.dataset}_{args.head}_h{args.hidden_dim}_e{args.epochs}_{timestamp}.txt"
+    log_name = f"{args.dataset}_{args.head}_kanRegWeight{args.kan_reg_weight if args.kan_reg_weight != None else 0}_lr{args.lr}_seed{args.seed}_e{args.epochs}_hiddenDim{args.hidden_dim if args.hidden_dim != 2048 else 2048}_{timestamp}.txt"
     log_dir = os.path.join(os.path.dirname(args.save_path) if os.path.dirname(args.save_path) else '.', 'logs')
     os.makedirs(log_dir, exist_ok=True)
     return os.path.join(log_dir, log_name)
@@ -512,6 +512,43 @@ def get_dataloaders(data_dir, batch_size, dataset_name='cifar10'):
 
         return trainloader, testloader, testloader, None, 10, 3, 32, None
 
+    if dataset_name == 'spur_cifar10':
+        # Spurious CIFAR-10 with group tracking for spurious correlations
+        transform_train = transforms.Compose([
+            transforms.RandomCrop(32, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        ])
+
+        transform_eval = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        ])
+
+        # Try to load as WILDS dataset first
+        try:
+            dataset = get_dataset(dataset='spur_cifar10', root_dir=data_dir)
+            groupby_fields = ['background', 'y']
+            eval_grouper = CombinatorialGrouper(dataset=dataset, groupby_fields=groupby_fields)
+
+            train_data = dataset.get_subset('train', transform=transform_train)
+            val_data = dataset.get_subset('val', transform=transform_eval)
+            test_data = dataset.get_subset('test', transform=transform_eval)
+            grid_data = dataset.get_subset('train', transform=transform_eval)
+
+            trainloader = get_train_loader('standard', train_data, batch_size=batch_size, num_workers=2, pin_memory=torch.cuda.is_available())
+            valloader = get_eval_loader('standard', val_data, batch_size=batch_size, num_workers=2, pin_memory=torch.cuda.is_available())
+            testloader = get_eval_loader('standard', test_data, batch_size=batch_size, num_workers=2, pin_memory=torch.cuda.is_available())
+            gridloader = get_eval_loader('standard', grid_data, batch_size=batch_size, num_workers=2, pin_memory=torch.cuda.is_available())
+
+            return trainloader, valloader, testloader, gridloader, dataset.n_classes, 3, 32, eval_grouper
+        except Exception as e:
+            raise RuntimeError(
+                "Failed to load 'spur_cifar10' with WILDS group metadata. "
+                "This dataset requires group-aware loading for worst-group metrics."
+            ) from e
+
     if dataset_name == 'cmnist':
         transform_train = transforms.Compose([
             transforms.Resize(32),
@@ -606,7 +643,7 @@ def get_dataloaders(data_dir, batch_size, dataset_name='cifar10'):
 
         return trainloader, valloader, testloader, gridloader, dataset.n_classes, 3, 224, eval_grouper
 
-    raise ValueError(f"Unknown dataset: {dataset_name}. Choose from 'cifar10', 'cmnist', 'metashift', 'waterbirds'")
+    raise ValueError(f"Unknown dataset: {dataset_name}. Choose from 'cifar10', 'spur_cifar10', 'cmnist', 'metashift', 'waterbirds'")
 
 def evaluate(model, loader, criterion, device, grouper=None):
     """
@@ -672,8 +709,8 @@ def format_wandb_run_name(args):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--head", type=str, required=True, choices=["mlp", "kan"])
-    ap.add_argument("--dataset", type=str, default="cifar10", choices=["cifar10", "cmnist", "metashift", "waterbirds"],
-                    help="Dataset to use: cifar10, cmnist (Colored MNIST), metashift, or waterbirds")
+    ap.add_argument("--dataset", type=str, default="cifar10", choices=["cifar10", "cmnist", "metashift", "waterbirds", "spur_cifar10"],
+                    help="Dataset to use: cifar10, cmnist (Colored MNIST), metashift, spurious CIFAR10 or waterbirds")
     ap.add_argument("--data_dir", type=str, default="./data")
     ap.add_argument("--epochs", type=int, default=200)
     ap.add_argument("--batch_size", type=int, default=128)
@@ -845,7 +882,7 @@ def main():
                 wb_log["Val/WG_best_accuracy"] = best_val_worst_group_acc
             if has_groups and test_worst_group_acc is not None:
                 wb_log["Test/WorstGroupAccuracy"] = test_worst_group_acc
-            wandb.log(wb_log)
+            wandb.log(wb_log, step=epoch + 1)
     
     end_time = time.time()
     total_time = end_time - start_time

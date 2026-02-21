@@ -1,0 +1,231 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: spur_cifar10
+Head: kan
+Hidden dim: 2048
+Epochs: 200
+Batch size: 128
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.01
+Seed: 42
+Device: cuda
+Log file: .\logs\spur_cifar10_kan_kanRegWeight0.01_lr0.01_seed42_e200_hiddenDim2048_20260219_145123.txt
+WandB: enabled
+============================================================
+
+data_dir  ./data\spur_cifar10
+Dataset: SPUR_CIFAR10 | Device: cuda | Model: KAN | Params: 21,864,512
+
+Group tracking enabled: 20 groups
+
+Ep 1/200 | Train Loss: 13.8342 | Val Loss: 0.7973 | Test Loss: 0.8038 | Train: 54.9% | Val: 72.3% | Test: 72.5% | Val-Avg10: 72.3% | Val-Best: 72.3% | Val-WG: 45.7% | Val-WG-Avg10: 45.7% | Val-WG-Best: 45.7% | Test-WG: 57.2%
+Ep 2/200 | Train Loss: 0.9623 | Val Loss: 0.5420 | Test Loss: 0.5684 | Train: 76.5% | Val: 81.2% | Test: 80.7% | Val-Avg10: 76.7% | Val-Best: 81.2% | Val-WG: 60.0% | Val-WG-Avg10: 52.9% | Val-WG-Best: 60.0% | Test-WG: 52.5%
+Ep 3/200 | Train Loss: 0.7507 | Val Loss: 0.4135 | Test Loss: 0.4492 | Train: 82.8% | Val: 85.6% | Test: 85.0% | Val-Avg10: 79.7% | Val-Best: 85.6% | Val-WG: 60.0% | Val-WG-Avg10: 55.2% | Val-WG-Best: 60.0% | Test-WG: 59.0%
+Ep 4/200 | Train Loss: 0.6427 | Val Loss: 0.3567 | Test Loss: 0.3922 | Train: 86.4% | Val: 87.7% | Test: 86.9% | Val-Avg10: 81.7% | Val-Best: 87.7% | Val-WG: 69.1% | Val-WG-Avg10: 58.7% | Val-WG-Best: 69.1% | Test-WG: 59.0%
+Ep 5/200 | Train Loss: 0.5759 | Val Loss: 0.3205 | Test Loss: 0.3484 | Train: 88.7% | Val: 89.0% | Test: 88.3% | Val-Avg10: 83.1% | Val-Best: 89.0% | Val-WG: 75.3% | Val-WG-Avg10: 62.0% | Val-WG-Best: 75.3% | Test-WG: 72.1%
+Ep 6/200 | Train Loss: 0.5309 | Val Loss: 0.2949 | Test Loss: 0.3211 | Train: 90.2% | Val: 90.1% | Test: 89.1% | Val-Avg10: 84.3% | Val-Best: 90.1% | Val-WG: 62.9% | Val-WG-Avg10: 62.2% | Val-WG-Best: 75.3% | Test-WG: 78.0%
+Ep 7/200 | Train Loss: 0.4928 | Val Loss: 0.2925 | Test Loss: 0.3098 | Train: 91.7% | Val: 90.0% | Test: 89.6% | Val-Avg10: 85.1% | Val-Best: 90.1% | Val-WG: 77.1% | Val-WG-Avg10: 64.3% | Val-WG-Best: 77.1% | Test-WG: 77.0%
+Ep 8/200 | Train Loss: 0.4655 | Val Loss: 0.2662 | Test Loss: 0.2890 | Train: 92.6% | Val: 90.6% | Test: 90.2% | Val-Avg10: 85.8% | Val-Best: 90.6% | Val-WG: 79.4% | Val-WG-Avg10: 66.2% | Val-WG-Best: 79.4% | Test-WG: 76.7%
+Ep 9/200 | Train Loss: 0.4378 | Val Loss: 0.2626 | Test Loss: 0.2864 | Train: 93.6% | Val: 90.7% | Test: 90.2% | Val-Avg10: 86.4% | Val-Best: 90.7% | Val-WG: 71.4% | Val-WG-Avg10: 66.8% | Val-WG-Best: 79.4% | Test-WG: 75.6%
+Ep 10/200 | Train Loss: 0.4184 | Val Loss: 0.2499 | Test Loss: 0.2721 | Train: 94.2% | Val: 92.0% | Test: 91.0% | Val-Avg10: 86.9% | Val-Best: 92.0% | Val-WG: 78.5% | Val-WG-Avg10: 67.9% | Val-WG-Best: 79.4% | Test-WG: 73.8%
+Ep 11/200 | Train Loss: 0.3994 | Val Loss: 0.2365 | Test Loss: 0.2702 | Train: 95.0% | Val: 92.0% | Test: 91.1% | Val-Avg10: 88.9% | Val-Best: 92.0% | Val-WG: 79.1% | Val-WG-Avg10: 71.3% | Val-WG-Best: 79.4% | Test-WG: 73.2%
+Ep 12/200 | Train Loss: 0.3854 | Val Loss: 0.2359 | Test Loss: 0.2588 | Train: 95.4% | Val: 92.4% | Test: 91.8% | Val-Avg10: 90.0% | Val-Best: 92.4% | Val-WG: 81.5% | Val-WG-Avg10: 73.4% | Val-WG-Best: 81.5% | Test-WG: 77.0%
+Ep 13/200 | Train Loss: 0.3712 | Val Loss: 0.2303 | Test Loss: 0.2548 | Train: 96.0% | Val: 92.9% | Test: 91.5% | Val-Avg10: 90.7% | Val-Best: 92.9% | Val-WG: 84.0% | Val-WG-Avg10: 75.8% | Val-WG-Best: 84.0% | Test-WG: 80.3%
+Ep 14/200 | Train Loss: 0.3584 | Val Loss: 0.2288 | Test Loss: 0.2556 | Train: 96.4% | Val: 92.6% | Test: 91.7% | Val-Avg10: 91.2% | Val-Best: 92.9% | Val-WG: 82.3% | Val-WG-Avg10: 77.2% | Val-WG-Best: 84.0% | Test-WG: 77.0%
+Ep 15/200 | Train Loss: 0.3487 | Val Loss: 0.2430 | Test Loss: 0.2534 | Train: 96.8% | Val: 92.4% | Test: 91.9% | Val-Avg10: 91.6% | Val-Best: 92.9% | Val-WG: 82.9% | Val-WG-Avg10: 77.9% | Val-WG-Best: 84.0% | Test-WG: 80.5%
+Ep 16/200 | Train Loss: 0.3405 | Val Loss: 0.2366 | Test Loss: 0.2538 | Train: 97.2% | Val: 92.3% | Test: 92.2% | Val-Avg10: 91.8% | Val-Best: 92.9% | Val-WG: 77.1% | Val-WG-Avg10: 79.3% | Val-WG-Best: 84.0% | Test-WG: 82.9%
+Ep 17/200 | Train Loss: 0.3338 | Val Loss: 0.2239 | Test Loss: 0.2473 | Train: 97.3% | Val: 92.9% | Test: 92.1% | Val-Avg10: 92.1% | Val-Best: 92.9% | Val-WG: 84.6% | Val-WG-Avg10: 80.1% | Val-WG-Best: 84.6% | Test-WG: 78.7%
+Ep 18/200 | Train Loss: 0.3258 | Val Loss: 0.2296 | Test Loss: 0.2580 | Train: 97.6% | Val: 92.6% | Test: 92.1% | Val-Avg10: 92.3% | Val-Best: 92.9% | Val-WG: 82.9% | Val-WG-Avg10: 80.4% | Val-WG-Best: 84.6% | Test-WG: 80.3%
+Ep 19/200 | Train Loss: 0.3205 | Val Loss: 0.2322 | Test Loss: 0.2596 | Train: 97.8% | Val: 92.7% | Test: 92.1% | Val-Avg10: 92.5% | Val-Best: 92.9% | Val-WG: 85.1% | Val-WG-Avg10: 81.8% | Val-WG-Best: 85.1% | Test-WG: 83.6%
+Ep 20/200 | Train Loss: 0.3173 | Val Loss: 0.2333 | Test Loss: 0.2526 | Train: 97.9% | Val: 92.8% | Test: 92.4% | Val-Avg10: 92.6% | Val-Best: 92.9% | Val-WG: 80.0% | Val-WG-Avg10: 82.0% | Val-WG-Best: 85.1% | Test-WG: 80.5%
+Ep 21/200 | Train Loss: 0.3110 | Val Loss: 0.2289 | Test Loss: 0.2619 | Train: 98.2% | Val: 93.0% | Test: 92.2% | Val-Avg10: 92.7% | Val-Best: 93.0% | Val-WG: 77.1% | Val-WG-Avg10: 81.8% | Val-WG-Best: 85.1% | Test-WG: 73.2%
+Ep 22/200 | Train Loss: 0.3095 | Val Loss: 0.2364 | Test Loss: 0.2580 | Train: 98.2% | Val: 92.7% | Test: 92.3% | Val-Avg10: 92.7% | Val-Best: 93.0% | Val-WG: 82.9% | Val-WG-Avg10: 81.9% | Val-WG-Best: 85.1% | Test-WG: 78.0%
+Ep 23/200 | Train Loss: 0.3044 | Val Loss: 0.2366 | Test Loss: 0.2508 | Train: 98.4% | Val: 92.8% | Test: 92.8% | Val-Avg10: 92.7% | Val-Best: 93.0% | Val-WG: 80.0% | Val-WG-Avg10: 81.5% | Val-WG-Best: 85.1% | Test-WG: 80.5%
+Ep 24/200 | Train Loss: 0.3016 | Val Loss: 0.2296 | Test Loss: 0.2548 | Train: 98.6% | Val: 93.3% | Test: 92.8% | Val-Avg10: 92.7% | Val-Best: 93.3% | Val-WG: 80.0% | Val-WG-Avg10: 81.3% | Val-WG-Best: 85.1% | Test-WG: 78.7%
+Ep 25/200 | Train Loss: 0.3034 | Val Loss: 0.2293 | Test Loss: 0.2507 | Train: 98.5% | Val: 93.0% | Test: 92.8% | Val-Avg10: 92.8% | Val-Best: 93.3% | Val-WG: 84.9% | Val-WG-Avg10: 81.5% | Val-WG-Best: 85.1% | Test-WG: 77.0%
+Ep 26/200 | Train Loss: 0.2978 | Val Loss: 0.2293 | Test Loss: 0.2486 | Train: 98.7% | Val: 93.0% | Test: 92.8% | Val-Avg10: 92.9% | Val-Best: 93.3% | Val-WG: 86.0% | Val-WG-Avg10: 82.3% | Val-WG-Best: 86.0% | Test-WG: 73.8%
+Ep 27/200 | Train Loss: 0.2938 | Val Loss: 0.2402 | Test Loss: 0.2540 | Train: 98.9% | Val: 93.0% | Test: 92.9% | Val-Avg10: 92.9% | Val-Best: 93.3% | Val-WG: 85.9% | Val-WG-Avg10: 82.5% | Val-WG-Best: 86.0% | Test-WG: 82.9%
+Ep 28/200 | Train Loss: 0.2946 | Val Loss: 0.2378 | Test Loss: 0.2518 | Train: 98.8% | Val: 93.1% | Test: 92.6% | Val-Avg10: 92.9% | Val-Best: 93.3% | Val-WG: 80.0% | Val-WG-Avg10: 82.2% | Val-WG-Best: 86.0% | Test-WG: 70.7%
+Ep 29/200 | Train Loss: 0.2946 | Val Loss: 0.2192 | Test Loss: 0.2630 | Train: 98.8% | Val: 93.4% | Test: 92.6% | Val-Avg10: 93.0% | Val-Best: 93.4% | Val-WG: 85.1% | Val-WG-Avg10: 82.2% | Val-WG-Best: 86.0% | Test-WG: 73.8%
+Ep 30/200 | Train Loss: 0.2931 | Val Loss: 0.2305 | Test Loss: 0.2612 | Train: 98.8% | Val: 93.2% | Test: 92.7% | Val-Avg10: 93.0% | Val-Best: 93.4% | Val-WG: 80.0% | Val-WG-Avg10: 82.2% | Val-WG-Best: 86.0% | Test-WG: 78.0%
+Ep 31/200 | Train Loss: 0.2909 | Val Loss: 0.2226 | Test Loss: 0.2573 | Train: 98.9% | Val: 93.5% | Test: 92.8% | Val-Avg10: 93.1% | Val-Best: 93.5% | Val-WG: 80.0% | Val-WG-Avg10: 82.5% | Val-WG-Best: 86.0% | Test-WG: 78.7%
+Ep 32/200 | Train Loss: 0.2917 | Val Loss: 0.2144 | Test Loss: 0.2539 | Train: 98.9% | Val: 93.7% | Test: 92.9% | Val-Avg10: 93.2% | Val-Best: 93.7% | Val-WG: 82.9% | Val-WG-Avg10: 82.5% | Val-WG-Best: 86.0% | Test-WG: 80.3%
+Ep 33/200 | Train Loss: 0.2903 | Val Loss: 0.2280 | Test Loss: 0.2641 | Train: 99.0% | Val: 93.4% | Test: 92.8% | Val-Avg10: 93.3% | Val-Best: 93.7% | Val-WG: 85.7% | Val-WG-Avg10: 83.0% | Val-WG-Best: 86.0% | Test-WG: 83.6%
+Ep 34/200 | Train Loss: 0.2890 | Val Loss: 0.2287 | Test Loss: 0.2516 | Train: 99.0% | Val: 93.2% | Test: 93.2% | Val-Avg10: 93.3% | Val-Best: 93.7% | Val-WG: 82.9% | Val-WG-Avg10: 83.3% | Val-WG-Best: 86.0% | Test-WG: 83.6%
+Ep 35/200 | Train Loss: 0.2871 | Val Loss: 0.2111 | Test Loss: 0.2549 | Train: 99.2% | Val: 93.9% | Test: 93.0% | Val-Avg10: 93.3% | Val-Best: 93.9% | Val-WG: 85.1% | Val-WG-Avg10: 83.3% | Val-WG-Best: 86.0% | Test-WG: 82.0%
+Ep 36/200 | Train Loss: 0.2851 | Val Loss: 0.2162 | Test Loss: 0.2668 | Train: 99.2% | Val: 93.6% | Test: 92.9% | Val-Avg10: 93.4% | Val-Best: 93.9% | Val-WG: 82.9% | Val-WG-Avg10: 83.0% | Val-WG-Best: 86.0% | Test-WG: 80.3%
+Ep 37/200 | Train Loss: 0.2884 | Val Loss: 0.2332 | Test Loss: 0.2799 | Train: 99.0% | Val: 93.3% | Test: 92.5% | Val-Avg10: 93.4% | Val-Best: 93.9% | Val-WG: 85.7% | Val-WG-Avg10: 83.0% | Val-WG-Best: 86.0% | Test-WG: 82.9%
+Ep 38/200 | Train Loss: 0.2864 | Val Loss: 0.2211 | Test Loss: 0.2598 | Train: 99.1% | Val: 93.4% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 84.2% | Val-WG-Avg10: 83.4% | Val-WG-Best: 86.0% | Test-WG: 82.0%
+Ep 39/200 | Train Loss: 0.2870 | Val Loss: 0.2218 | Test Loss: 0.2689 | Train: 99.1% | Val: 93.8% | Test: 92.7% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.2% | Val-WG-Avg10: 83.4% | Val-WG-Best: 86.0% | Test-WG: 78.7%
+Ep 40/200 | Train Loss: 0.2861 | Val Loss: 0.2198 | Test Loss: 0.2632 | Train: 99.1% | Val: 93.6% | Test: 92.8% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 86.6% | Val-WG-Avg10: 84.1% | Val-WG-Best: 86.6% | Test-WG: 73.8%
+Ep 41/200 | Train Loss: 0.2865 | Val Loss: 0.2382 | Test Loss: 0.2630 | Train: 99.1% | Val: 93.3% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 77.1% | Val-WG-Avg10: 83.8% | Val-WG-Best: 86.6% | Test-WG: 78.7%
+Ep 42/200 | Train Loss: 0.2860 | Val Loss: 0.2250 | Test Loss: 0.2636 | Train: 99.1% | Val: 93.5% | Test: 92.8% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.7% | Val-WG-Avg10: 84.1% | Val-WG-Best: 86.6% | Test-WG: 83.6%
+Ep 43/200 | Train Loss: 0.2852 | Val Loss: 0.2316 | Test Loss: 0.2675 | Train: 99.2% | Val: 93.5% | Test: 92.8% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.3% | Val-WG-Avg10: 84.1% | Val-WG-Best: 86.6% | Test-WG: 78.7%
+Ep 44/200 | Train Loss: 0.2856 | Val Loss: 0.2300 | Test Loss: 0.2593 | Train: 99.1% | Val: 93.7% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.2% | Val-WG-Avg10: 84.3% | Val-WG-Best: 86.6% | Test-WG: 77.0%
+Ep 45/200 | Train Loss: 0.2855 | Val Loss: 0.2292 | Test Loss: 0.2518 | Train: 99.2% | Val: 93.4% | Test: 93.1% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 87.6% | Val-WG-Avg10: 84.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 46/200 | Train Loss: 0.2844 | Val Loss: 0.2272 | Test Loss: 0.2466 | Train: 99.2% | Val: 93.7% | Test: 93.3% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.2% | Val-WG-Avg10: 84.8% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 47/200 | Train Loss: 0.2843 | Val Loss: 0.2233 | Test Loss: 0.2548 | Train: 99.2% | Val: 93.4% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 85.2% | Val-WG-Avg10: 84.7% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 48/200 | Train Loss: 0.2841 | Val Loss: 0.2221 | Test Loss: 0.2560 | Train: 99.2% | Val: 93.7% | Test: 93.2% | Val-Avg10: 93.6% | Val-Best: 93.9% | Val-WG: 82.9% | Val-WG-Avg10: 84.6% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 49/200 | Train Loss: 0.2855 | Val Loss: 0.2390 | Test Loss: 0.2602 | Train: 99.2% | Val: 93.1% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 82.9% | Val-WG-Avg10: 84.4% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 50/200 | Train Loss: 0.2858 | Val Loss: 0.2514 | Test Loss: 0.2737 | Train: 99.1% | Val: 92.6% | Test: 92.7% | Val-Avg10: 93.4% | Val-Best: 93.9% | Val-WG: 85.7% | Val-WG-Avg10: 84.3% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 51/200 | Train Loss: 0.2844 | Val Loss: 0.2359 | Test Loss: 0.2577 | Train: 99.1% | Val: 93.6% | Test: 93.1% | Val-Avg10: 93.4% | Val-Best: 93.9% | Val-WG: 85.7% | Val-WG-Avg10: 85.1% | Val-WG-Best: 87.6% | Test-WG: 85.2%
+Ep 52/200 | Train Loss: 0.2853 | Val Loss: 0.2226 | Test Loss: 0.2647 | Train: 99.2% | Val: 93.8% | Test: 92.8% | Val-Avg10: 93.4% | Val-Best: 93.9% | Val-WG: 86.9% | Val-WG-Avg10: 85.3% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 53/200 | Train Loss: 0.2867 | Val Loss: 0.2210 | Test Loss: 0.2484 | Train: 99.1% | Val: 93.7% | Test: 93.2% | Val-Avg10: 93.5% | Val-Best: 93.9% | Val-WG: 86.8% | Val-WG-Avg10: 85.4% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 54/200 | Train Loss: 0.2839 | Val Loss: 0.2066 | Test Loss: 0.2502 | Train: 99.2% | Val: 94.0% | Test: 93.4% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 84.9% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 55/200 | Train Loss: 0.2857 | Val Loss: 0.2231 | Test Loss: 0.2656 | Train: 99.2% | Val: 94.0% | Test: 93.2% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 84.7% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 56/200 | Train Loss: 0.2836 | Val Loss: 0.2161 | Test Loss: 0.2566 | Train: 99.2% | Val: 93.6% | Test: 92.9% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 84.7% | Val-WG-Best: 87.6% | Test-WG: 85.2%
+Ep 57/200 | Train Loss: 0.2870 | Val Loss: 0.2193 | Test Loss: 0.2630 | Train: 99.1% | Val: 93.7% | Test: 92.8% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 86.1% | Val-WG-Avg10: 84.8% | Val-WG-Best: 87.6% | Test-WG: 82.9%
+Ep 58/200 | Train Loss: 0.2866 | Val Loss: 0.2392 | Test Loss: 0.2697 | Train: 99.1% | Val: 93.5% | Test: 92.7% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 84.6% | Val-WG-Avg10: 85.0% | Val-WG-Best: 87.6% | Test-WG: 75.6%
+Ep 59/200 | Train Loss: 0.2860 | Val Loss: 0.2344 | Test Loss: 0.2552 | Train: 99.1% | Val: 93.3% | Test: 93.1% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 84.3% | Val-WG-Avg10: 85.1% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 60/200 | Train Loss: 0.2859 | Val Loss: 0.2141 | Test Loss: 0.2464 | Train: 99.2% | Val: 93.8% | Test: 93.5% | Val-Avg10: 93.7% | Val-Best: 94.0% | Val-WG: 86.8% | Val-WG-Avg10: 85.3% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 61/200 | Train Loss: 0.2866 | Val Loss: 0.2448 | Test Loss: 0.2771 | Train: 99.1% | Val: 93.1% | Test: 92.8% | Val-Avg10: 93.7% | Val-Best: 94.0% | Val-WG: 85.3% | Val-WG-Avg10: 85.2% | Val-WG-Best: 87.6% | Test-WG: 81.7%
+Ep 62/200 | Train Loss: 0.2869 | Val Loss: 0.2425 | Test Loss: 0.2827 | Train: 99.0% | Val: 93.3% | Test: 92.6% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 84.2% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 63/200 | Train Loss: 0.2868 | Val Loss: 0.2420 | Test Loss: 0.2631 | Train: 99.1% | Val: 93.5% | Test: 93.0% | Val-Avg10: 93.6% | Val-Best: 94.0% | Val-WG: 85.1% | Val-WG-Avg10: 84.1% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 64/200 | Train Loss: 0.2888 | Val Loss: 0.2327 | Test Loss: 0.2587 | Train: 99.0% | Val: 93.7% | Test: 93.2% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 84.6% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 65/200 | Train Loss: 0.2882 | Val Loss: 0.2318 | Test Loss: 0.2541 | Train: 99.0% | Val: 93.5% | Test: 93.1% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 86.0% | Val-WG-Avg10: 84.7% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 66/200 | Train Loss: 0.2877 | Val Loss: 0.2268 | Test Loss: 0.2446 | Train: 99.0% | Val: 93.8% | Test: 93.7% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 84.4% | Val-WG-Best: 87.6% | Test-WG: 85.4%
+Ep 67/200 | Train Loss: 0.2877 | Val Loss: 0.2211 | Test Loss: 0.2463 | Train: 99.1% | Val: 93.7% | Test: 93.3% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 86.2% | Val-WG-Avg10: 84.4% | Val-WG-Best: 87.6% | Test-WG: 84.3%
+Ep 68/200 | Train Loss: 0.2884 | Val Loss: 0.2220 | Test Loss: 0.2552 | Train: 99.0% | Val: 93.6% | Test: 93.3% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 83.4% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 69/200 | Train Loss: 0.2888 | Val Loss: 0.2575 | Test Loss: 0.2717 | Train: 99.0% | Val: 92.8% | Test: 92.5% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 82.1% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 70/200 | Train Loss: 0.2869 | Val Loss: 0.2348 | Test Loss: 0.2708 | Train: 99.0% | Val: 93.7% | Test: 92.8% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 81.6% | Val-WG-Best: 87.6% | Test-WG: 88.0%
+Ep 71/200 | Train Loss: 0.2884 | Val Loss: 0.2369 | Test Loss: 0.2836 | Train: 98.9% | Val: 93.1% | Test: 92.4% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 81.1% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 72/200 | Train Loss: 0.2888 | Val Loss: 0.2239 | Test Loss: 0.2617 | Train: 98.9% | Val: 93.3% | Test: 92.9% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 81.1% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 73/200 | Train Loss: 0.2907 | Val Loss: 0.2287 | Test Loss: 0.2572 | Train: 98.9% | Val: 93.3% | Test: 93.0% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 83.1% | Val-WG-Avg10: 80.9% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 74/200 | Train Loss: 0.2899 | Val Loss: 0.2385 | Test Loss: 0.2644 | Train: 99.0% | Val: 93.4% | Test: 92.8% | Val-Avg10: 93.4% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 80.9% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 75/200 | Train Loss: 0.2901 | Val Loss: 0.2166 | Test Loss: 0.2471 | Train: 98.9% | Val: 93.8% | Test: 93.2% | Val-Avg10: 93.5% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 79.7% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 76/200 | Train Loss: 0.2909 | Val Loss: 0.2431 | Test Loss: 0.2662 | Train: 98.9% | Val: 93.1% | Test: 92.8% | Val-Avg10: 93.4% | Val-Best: 94.0% | Val-WG: 86.6% | Val-WG-Avg10: 80.1% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 77/200 | Train Loss: 0.2922 | Val Loss: 0.2227 | Test Loss: 0.2537 | Train: 98.9% | Val: 93.8% | Test: 93.1% | Val-Avg10: 93.4% | Val-Best: 94.0% | Val-WG: 84.9% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 78/200 | Train Loss: 0.2903 | Val Loss: 0.2665 | Test Loss: 0.2796 | Train: 99.0% | Val: 92.5% | Test: 92.5% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 80.3% | Val-WG-Best: 87.6% | Test-WG: 85.2%
+Ep 79/200 | Train Loss: 0.2936 | Val Loss: 0.2377 | Test Loss: 0.2552 | Train: 98.8% | Val: 93.2% | Test: 93.1% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 81.4% | Val-WG-Best: 87.6% | Test-WG: 85.2%
+Ep 80/200 | Train Loss: 0.2921 | Val Loss: 0.2515 | Test Loss: 0.2743 | Train: 98.8% | Val: 92.7% | Test: 92.6% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 83.8% | Val-WG-Avg10: 81.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 81/200 | Train Loss: 0.2950 | Val Loss: 0.2091 | Test Loss: 0.2582 | Train: 98.8% | Val: 93.9% | Test: 92.9% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 87.0% | Val-WG-Avg10: 82.2% | Val-WG-Best: 87.6% | Test-WG: 83.1%
+Ep 82/200 | Train Loss: 0.2920 | Val Loss: 0.2360 | Test Loss: 0.2715 | Train: 98.8% | Val: 93.0% | Test: 92.5% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 85.3% | Val-WG-Avg10: 83.0% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 83/200 | Train Loss: 0.2931 | Val Loss: 0.2442 | Test Loss: 0.2595 | Train: 98.8% | Val: 93.2% | Test: 93.0% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 82.7% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 84/200 | Train Loss: 0.2936 | Val Loss: 0.2484 | Test Loss: 0.2650 | Train: 98.8% | Val: 92.9% | Test: 93.0% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 82.4% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 85/200 | Train Loss: 0.2925 | Val Loss: 0.2248 | Test Loss: 0.2460 | Train: 98.8% | Val: 93.3% | Test: 93.2% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 83.0% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 86/200 | Train Loss: 0.2930 | Val Loss: 0.2485 | Test Loss: 0.2618 | Train: 98.8% | Val: 93.2% | Test: 93.1% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 82.1% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 87/200 | Train Loss: 0.2940 | Val Loss: 0.2382 | Test Loss: 0.2600 | Train: 98.7% | Val: 92.9% | Test: 92.7% | Val-Avg10: 93.1% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 81.8% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 88/200 | Train Loss: 0.2955 | Val Loss: 0.2215 | Test Loss: 0.2534 | Train: 98.7% | Val: 93.7% | Test: 93.0% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 86.7% | Val-WG-Avg10: 82.8% | Val-WG-Best: 87.6% | Test-WG: 86.0%
+Ep 89/200 | Train Loss: 0.2936 | Val Loss: 0.2425 | Test Loss: 0.2606 | Train: 98.7% | Val: 93.4% | Test: 93.1% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 82.5% | Val-WG-Best: 87.6% | Test-WG: 84.9%
+Ep 90/200 | Train Loss: 0.2960 | Val Loss: 0.2286 | Test Loss: 0.2519 | Train: 98.6% | Val: 93.5% | Test: 93.2% | Val-Avg10: 93.3% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 82.4% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 91/200 | Train Loss: 0.2938 | Val Loss: 0.2332 | Test Loss: 0.2756 | Train: 98.8% | Val: 93.3% | Test: 92.6% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 82.8% | Val-WG-Avg10: 82.0% | Val-WG-Best: 87.6% | Test-WG: 82.1%
+Ep 92/200 | Train Loss: 0.2928 | Val Loss: 0.2644 | Test Loss: 0.2767 | Train: 98.8% | Val: 92.7% | Test: 92.6% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 82.1% | Val-WG-Avg10: 81.7% | Val-WG-Best: 87.6% | Test-WG: 79.1%
+Ep 93/200 | Train Loss: 0.2977 | Val Loss: 0.2517 | Test Loss: 0.2643 | Train: 98.6% | Val: 93.2% | Test: 92.8% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 85.1% | Val-WG-Avg10: 82.2% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 94/200 | Train Loss: 0.2944 | Val Loss: 0.2703 | Test Loss: 0.2869 | Train: 98.7% | Val: 92.6% | Test: 92.3% | Val-Avg10: 93.2% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 82.2% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 95/200 | Train Loss: 0.2982 | Val Loss: 0.2704 | Test Loss: 0.2658 | Train: 98.6% | Val: 92.7% | Test: 93.0% | Val-Avg10: 93.1% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 82.2% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 96/200 | Train Loss: 0.2967 | Val Loss: 0.2413 | Test Loss: 0.2728 | Train: 98.7% | Val: 93.1% | Test: 92.6% | Val-Avg10: 93.1% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 82.2% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 97/200 | Train Loss: 0.2988 | Val Loss: 0.2630 | Test Loss: 0.2802 | Train: 98.6% | Val: 92.8% | Test: 92.7% | Val-Avg10: 93.1% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 81.9% | Val-WG-Best: 87.6% | Test-WG: 70.7%
+Ep 98/200 | Train Loss: 0.3003 | Val Loss: 0.2666 | Test Loss: 0.2975 | Train: 98.5% | Val: 92.4% | Test: 91.7% | Val-Avg10: 93.0% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 81.5% | Val-WG-Best: 87.6% | Test-WG: 79.6%
+Ep 99/200 | Train Loss: 0.2962 | Val Loss: 0.2641 | Test Loss: 0.2870 | Train: 98.5% | Val: 92.6% | Test: 92.2% | Val-Avg10: 92.9% | Val-Best: 94.0% | Val-WG: 73.5% | Val-WG-Avg10: 80.9% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 100/200 | Train Loss: 0.2997 | Val Loss: 0.2709 | Test Loss: 0.2909 | Train: 98.5% | Val: 92.3% | Test: 92.2% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 80.6% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 101/200 | Train Loss: 0.2968 | Val Loss: 0.2597 | Test Loss: 0.2894 | Train: 98.6% | Val: 92.5% | Test: 92.5% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 85.4%
+Ep 102/200 | Train Loss: 0.2970 | Val Loss: 0.2721 | Test Loss: 0.2713 | Train: 98.5% | Val: 92.4% | Test: 92.8% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 79.2% | Val-WG-Best: 87.6% | Test-WG: 82.9%
+Ep 103/200 | Train Loss: 0.2974 | Val Loss: 0.2533 | Test Loss: 0.2812 | Train: 98.6% | Val: 93.1% | Test: 92.5% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 78.7% | Val-WG-Best: 87.6% | Test-WG: 84.1%
+Ep 104/200 | Train Loss: 0.2938 | Val Loss: 0.2760 | Test Loss: 0.2873 | Train: 98.6% | Val: 92.3% | Test: 92.2% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 83.0% | Val-WG-Avg10: 78.7% | Val-WG-Best: 87.6% | Test-WG: 81.6%
+Ep 105/200 | Train Loss: 0.2969 | Val Loss: 0.2767 | Test Loss: 0.2797 | Train: 98.5% | Val: 92.4% | Test: 92.4% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 79.0% | Val-WG-Best: 87.6% | Test-WG: 86.5%
+Ep 106/200 | Train Loss: 0.2970 | Val Loss: 0.2907 | Test Loss: 0.2985 | Train: 98.5% | Val: 92.8% | Test: 92.1% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.3% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 107/200 | Train Loss: 0.2986 | Val Loss: 0.2814 | Test Loss: 0.2898 | Train: 98.5% | Val: 92.2% | Test: 92.1% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.4% | Val-WG-Best: 87.6% | Test-WG: 82.7%
+Ep 108/200 | Train Loss: 0.2971 | Val Loss: 0.2999 | Test Loss: 0.3048 | Train: 98.5% | Val: 91.8% | Test: 92.1% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.1% | Val-WG-Best: 87.6% | Test-WG: 82.2%
+Ep 109/200 | Train Loss: 0.2978 | Val Loss: 0.2436 | Test Loss: 0.2573 | Train: 98.4% | Val: 93.2% | Test: 93.0% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 80.7%
+Ep 110/200 | Train Loss: 0.2963 | Val Loss: 0.2711 | Test Loss: 0.2947 | Train: 98.5% | Val: 92.1% | Test: 92.1% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 83.3% | Val-WG-Avg10: 80.3% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 111/200 | Train Loss: 0.2984 | Val Loss: 0.2671 | Test Loss: 0.2889 | Train: 98.5% | Val: 92.7% | Test: 92.6% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 80.3% | Val-WG-Best: 87.6% | Test-WG: 73.2%
+Ep 112/200 | Train Loss: 0.2978 | Val Loss: 0.2584 | Test Loss: 0.2830 | Train: 98.4% | Val: 92.7% | Test: 92.6% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 80.6% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 113/200 | Train Loss: 0.2970 | Val Loss: 0.2640 | Test Loss: 0.2979 | Train: 98.6% | Val: 93.0% | Test: 92.5% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 80.1% | Val-WG-Best: 87.6% | Test-WG: 82.9%
+Ep 114/200 | Train Loss: 0.2960 | Val Loss: 0.2637 | Test Loss: 0.2904 | Train: 98.5% | Val: 92.9% | Test: 92.2% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 85.1% | Val-WG-Avg10: 80.3% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 115/200 | Train Loss: 0.2973 | Val Loss: 0.2552 | Test Loss: 0.2854 | Train: 98.5% | Val: 92.8% | Test: 92.4% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 80.6% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 116/200 | Train Loss: 0.2944 | Val Loss: 0.2118 | Test Loss: 0.2578 | Train: 98.6% | Val: 93.8% | Test: 93.0% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 80.8% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 117/200 | Train Loss: 0.2977 | Val Loss: 0.2441 | Test Loss: 0.2752 | Train: 98.5% | Val: 93.5% | Test: 92.5% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 118/200 | Train Loss: 0.2964 | Val Loss: 0.2474 | Test Loss: 0.2751 | Train: 98.6% | Val: 93.1% | Test: 92.6% | Val-Avg10: 93.0% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 79.7% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 119/200 | Train Loss: 0.2967 | Val Loss: 0.2739 | Test Loss: 0.3239 | Train: 98.6% | Val: 92.8% | Test: 91.8% | Val-Avg10: 92.9% | Val-Best: 94.0% | Val-WG: 85.3% | Val-WG-Avg10: 79.9% | Val-WG-Best: 87.6% | Test-WG: 72.1%
+Ep 120/200 | Train Loss: 0.2956 | Val Loss: 0.2990 | Test Loss: 0.3194 | Train: 98.5% | Val: 91.8% | Test: 91.8% | Val-Avg10: 92.9% | Val-Best: 94.0% | Val-WG: 68.6% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 70.7%
+Ep 121/200 | Train Loss: 0.2982 | Val Loss: 0.2468 | Test Loss: 0.2731 | Train: 98.3% | Val: 93.2% | Test: 92.8% | Val-Avg10: 93.0% | Val-Best: 94.0% | Val-WG: 81.5% | Val-WG-Avg10: 78.9% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 122/200 | Train Loss: 0.2967 | Val Loss: 0.3295 | Test Loss: 0.3323 | Train: 98.5% | Val: 91.3% | Test: 91.5% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 78.1% | Val-WG-Avg10: 79.0% | Val-WG-Best: 87.6% | Test-WG: 65.6%
+Ep 123/200 | Train Loss: 0.2966 | Val Loss: 0.2746 | Test Loss: 0.2929 | Train: 98.5% | Val: 92.2% | Test: 92.5% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 81.8% | Val-WG-Avg10: 79.7% | Val-WG-Best: 87.6% | Test-WG: 72.1%
+Ep 124/200 | Train Loss: 0.2962 | Val Loss: 0.2950 | Test Loss: 0.3274 | Train: 98.4% | Val: 91.6% | Test: 91.3% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 72.7% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 65.6%
+Ep 125/200 | Train Loss: 0.2951 | Val Loss: 0.2752 | Test Loss: 0.2993 | Train: 98.5% | Val: 92.6% | Test: 92.3% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 77.3% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 126/200 | Train Loss: 0.2960 | Val Loss: 0.2595 | Test Loss: 0.2818 | Train: 98.5% | Val: 92.8% | Test: 92.4% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 73.8%
+Ep 127/200 | Train Loss: 0.2923 | Val Loss: 0.2613 | Test Loss: 0.2810 | Train: 98.6% | Val: 92.9% | Test: 92.4% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 128/200 | Train Loss: 0.2983 | Val Loss: 0.2914 | Test Loss: 0.3067 | Train: 98.4% | Val: 92.0% | Test: 91.6% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 77.9% | Val-WG-Best: 87.6% | Test-WG: 83.9%
+Ep 129/200 | Train Loss: 0.2978 | Val Loss: 0.2991 | Test Loss: 0.3230 | Train: 98.5% | Val: 92.3% | Test: 91.6% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 76.5% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 130/200 | Train Loss: 0.2974 | Val Loss: 0.2903 | Test Loss: 0.2980 | Train: 98.4% | Val: 92.2% | Test: 92.1% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 79.2% | Val-WG-Avg10: 77.6% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 131/200 | Train Loss: 0.2968 | Val Loss: 0.2733 | Test Loss: 0.2990 | Train: 98.3% | Val: 92.2% | Test: 92.0% | Val-Avg10: 92.2% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 77.1% | Val-WG-Best: 87.6% | Test-WG: 82.7%
+Ep 132/200 | Train Loss: 0.2965 | Val Loss: 0.2662 | Test Loss: 0.2892 | Train: 98.4% | Val: 92.4% | Test: 92.1% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 77.6% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 133/200 | Train Loss: 0.2955 | Val Loss: 0.2783 | Test Loss: 0.3102 | Train: 98.4% | Val: 92.4% | Test: 91.8% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 80.9% | Val-WG-Avg10: 77.5% | Val-WG-Best: 87.6% | Test-WG: 76.8%
+Ep 134/200 | Train Loss: 0.2976 | Val Loss: 0.2389 | Test Loss: 0.2817 | Train: 98.4% | Val: 93.6% | Test: 92.4% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 135/200 | Train Loss: 0.2953 | Val Loss: 0.3045 | Test Loss: 0.3036 | Train: 98.5% | Val: 91.9% | Test: 92.4% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 65.7% | Val-WG-Avg10: 77.3% | Val-WG-Best: 87.6% | Test-WG: 77.3%
+Ep 136/200 | Train Loss: 0.2954 | Val Loss: 0.2454 | Test Loss: 0.2847 | Train: 98.4% | Val: 93.3% | Test: 92.0% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 85.7% | Val-WG-Avg10: 77.6% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 137/200 | Train Loss: 0.2964 | Val Loss: 0.2565 | Test Loss: 0.2812 | Train: 98.5% | Val: 92.9% | Test: 92.5% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 138/200 | Train Loss: 0.2979 | Val Loss: 0.2740 | Test Loss: 0.2864 | Train: 98.4% | Val: 92.8% | Test: 92.5% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 78.2% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 139/200 | Train Loss: 0.2963 | Val Loss: 0.2494 | Test Loss: 0.2969 | Train: 98.4% | Val: 92.8% | Test: 92.2% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 140/200 | Train Loss: 0.2974 | Val Loss: 0.2709 | Test Loss: 0.3077 | Train: 98.4% | Val: 92.5% | Test: 92.1% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 84.8% | Val-WG-Avg10: 79.1% | Val-WG-Best: 87.6% | Test-WG: 81.8%
+Ep 141/200 | Train Loss: 0.2920 | Val Loss: 0.2670 | Test Loss: 0.3006 | Train: 98.5% | Val: 92.7% | Test: 92.1% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 79.6% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 142/200 | Train Loss: 0.2965 | Val Loss: 0.2452 | Test Loss: 0.2575 | Train: 98.4% | Val: 93.0% | Test: 93.1% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 79.6% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 143/200 | Train Loss: 0.2980 | Val Loss: 0.2596 | Test Loss: 0.2874 | Train: 98.4% | Val: 92.7% | Test: 92.4% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.5% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 144/200 | Train Loss: 0.2989 | Val Loss: 0.2660 | Test Loss: 0.3099 | Train: 98.5% | Val: 92.9% | Test: 92.1% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 81.5% | Val-WG-Avg10: 79.4% | Val-WG-Best: 87.6% | Test-WG: 72.1%
+Ep 145/200 | Train Loss: 0.2940 | Val Loss: 0.2798 | Test Loss: 0.3055 | Train: 98.4% | Val: 92.8% | Test: 92.0% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 76.5% | Val-WG-Avg10: 80.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 146/200 | Train Loss: 0.2967 | Val Loss: 0.2740 | Test Loss: 0.2922 | Train: 98.4% | Val: 92.4% | Test: 92.6% | Val-Avg10: 92.8% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 79.6% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 147/200 | Train Loss: 0.2938 | Val Loss: 0.2606 | Test Loss: 0.2873 | Train: 98.5% | Val: 92.6% | Test: 92.4% | Val-Avg10: 92.7% | Val-Best: 94.0% | Val-WG: 81.8% | Val-WG-Avg10: 79.8% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 148/200 | Train Loss: 0.2951 | Val Loss: 0.3049 | Test Loss: 0.3214 | Train: 98.5% | Val: 92.0% | Test: 91.8% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 79.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 149/200 | Train Loss: 0.2950 | Val Loss: 0.2732 | Test Loss: 0.2648 | Train: 98.4% | Val: 92.6% | Test: 92.6% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 83.7% | Val-WG-Avg10: 80.4% | Val-WG-Best: 87.6% | Test-WG: 82.9%
+Ep 150/200 | Train Loss: 0.2949 | Val Loss: 0.2795 | Test Loss: 0.2870 | Train: 98.4% | Val: 92.3% | Test: 92.1% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 151/200 | Train Loss: 0.2954 | Val Loss: 0.2829 | Test Loss: 0.3034 | Train: 98.5% | Val: 91.9% | Test: 92.3% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 79.0% | Val-WG-Avg10: 79.6% | Val-WG-Best: 87.6% | Test-WG: 78.9%
+Ep 152/200 | Train Loss: 0.2965 | Val Loss: 0.2711 | Test Loss: 0.2878 | Train: 98.5% | Val: 92.7% | Test: 92.3% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.4% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 153/200 | Train Loss: 0.2953 | Val Loss: 0.2797 | Test Loss: 0.3243 | Train: 98.5% | Val: 92.2% | Test: 91.5% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 79.3% | Val-WG-Best: 87.6% | Test-WG: 73.8%
+Ep 154/200 | Train Loss: 0.2931 | Val Loss: 0.2737 | Test Loss: 0.2941 | Train: 98.5% | Val: 92.6% | Test: 92.2% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 79.5% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 155/200 | Train Loss: 0.2980 | Val Loss: 0.2558 | Test Loss: 0.2966 | Train: 98.4% | Val: 92.9% | Test: 92.0% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 81.9% | Val-WG-Avg10: 80.0% | Val-WG-Best: 87.6% | Test-WG: 70.5%
+Ep 156/200 | Train Loss: 0.2950 | Val Loss: 0.2591 | Test Loss: 0.2835 | Train: 98.5% | Val: 92.9% | Test: 92.5% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 85.2% | Val-WG-Avg10: 80.8% | Val-WG-Best: 87.6% | Test-WG: 84.7%
+Ep 157/200 | Train Loss: 0.2951 | Val Loss: 0.2958 | Test Loss: 0.3133 | Train: 98.4% | Val: 91.9% | Test: 91.5% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 77.8% | Val-WG-Avg10: 80.4% | Val-WG-Best: 87.6% | Test-WG: 76.6%
+Ep 158/200 | Train Loss: 0.2938 | Val Loss: 0.2767 | Test Loss: 0.3025 | Train: 98.4% | Val: 92.6% | Test: 92.2% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 80.1% | Val-WG-Best: 87.6% | Test-WG: 78.0%
+Ep 159/200 | Train Loss: 0.2950 | Val Loss: 0.2696 | Test Loss: 0.2912 | Train: 98.4% | Val: 92.6% | Test: 92.9% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 79.2% | Val-WG-Avg10: 79.7% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 160/200 | Train Loss: 0.2933 | Val Loss: 0.3105 | Test Loss: 0.3267 | Train: 98.5% | Val: 92.0% | Test: 91.7% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 78.8% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 161/200 | Train Loss: 0.2954 | Val Loss: 0.2924 | Test Loss: 0.3050 | Train: 98.5% | Val: 92.7% | Test: 92.4% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 78.1% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 162/200 | Train Loss: 0.2944 | Val Loss: 0.2442 | Test Loss: 0.2883 | Train: 98.5% | Val: 93.1% | Test: 92.2% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 73.5% | Val-WG-Avg10: 77.4% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 163/200 | Train Loss: 0.2966 | Val Loss: 0.2626 | Test Loss: 0.2960 | Train: 98.5% | Val: 92.8% | Test: 92.5% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 81.8% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 85.4%
+Ep 164/200 | Train Loss: 0.2940 | Val Loss: 0.2707 | Test Loss: 0.2944 | Train: 98.5% | Val: 92.3% | Test: 92.1% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 72.7% | Val-WG-Avg10: 76.7% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 165/200 | Train Loss: 0.2915 | Val Loss: 0.2383 | Test Loss: 0.2693 | Train: 98.6% | Val: 93.2% | Test: 92.9% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 86.4% | Val-WG-Avg10: 77.1% | Val-WG-Best: 87.6% | Test-WG: 82.4%
+Ep 166/200 | Train Loss: 0.2957 | Val Loss: 0.2840 | Test Loss: 0.3159 | Train: 98.3% | Val: 92.5% | Test: 91.6% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 76.3% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 167/200 | Train Loss: 0.2924 | Val Loss: 0.2714 | Test Loss: 0.3115 | Train: 98.6% | Val: 92.5% | Test: 91.9% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 75.9% | Val-WG-Best: 87.6% | Test-WG: 79.4%
+Ep 168/200 | Train Loss: 0.2957 | Val Loss: 0.3035 | Test Loss: 0.3357 | Train: 98.5% | Val: 92.1% | Test: 91.8% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 76.2% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 169/200 | Train Loss: 0.2970 | Val Loss: 0.2568 | Test Loss: 0.2870 | Train: 98.5% | Val: 92.5% | Test: 92.5% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 76.2% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 170/200 | Train Loss: 0.2949 | Val Loss: 0.2702 | Test Loss: 0.3051 | Train: 98.5% | Val: 92.3% | Test: 92.4% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 85.2% | Val-WG-Avg10: 77.6% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 171/200 | Train Loss: 0.2962 | Val Loss: 0.2768 | Test Loss: 0.3115 | Train: 98.4% | Val: 92.4% | Test: 91.9% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 81.5% | Val-WG-Avg10: 78.6% | Val-WG-Best: 87.6% | Test-WG: 73.8%
+Ep 172/200 | Train Loss: 0.2927 | Val Loss: 0.2716 | Test Loss: 0.2958 | Train: 98.5% | Val: 92.4% | Test: 92.0% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 85.3% | Val-WG-Avg10: 79.8% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 173/200 | Train Loss: 0.2966 | Val Loss: 0.2947 | Test Loss: 0.3037 | Train: 98.4% | Val: 92.3% | Test: 92.0% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 79.3% | Val-WG-Best: 87.6% | Test-WG: 75.6%
+Ep 174/200 | Train Loss: 0.2937 | Val Loss: 0.2888 | Test Loss: 0.3197 | Train: 98.6% | Val: 92.3% | Test: 92.2% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 70.6% | Val-WG-Avg10: 79.1% | Val-WG-Best: 87.6% | Test-WG: 81.7%
+Ep 175/200 | Train Loss: 0.2930 | Val Loss: 0.2839 | Test Loss: 0.2997 | Train: 98.5% | Val: 92.5% | Test: 92.3% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 79.8%
+Ep 176/200 | Train Loss: 0.2954 | Val Loss: 0.3164 | Test Loss: 0.3199 | Train: 98.6% | Val: 91.4% | Test: 92.0% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 71.4% | Val-WG-Avg10: 77.9% | Val-WG-Best: 87.6% | Test-WG: 78.6%
+Ep 177/200 | Train Loss: 0.2953 | Val Loss: 0.3132 | Test Loss: 0.3300 | Train: 98.5% | Val: 91.9% | Test: 92.0% | Val-Avg10: 92.2% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 77.9% | Val-WG-Best: 87.6% | Test-WG: 82.3%
+Ep 178/200 | Train Loss: 0.2916 | Val Loss: 0.2498 | Test Loss: 0.2791 | Train: 98.5% | Val: 93.2% | Test: 92.8% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 85.4% | Val-WG-Avg10: 79.0% | Val-WG-Best: 87.6% | Test-WG: 83.6%
+Ep 179/200 | Train Loss: 0.2946 | Val Loss: 0.2572 | Test Loss: 0.2811 | Train: 98.5% | Val: 93.4% | Test: 92.8% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.1% | Val-WG-Best: 87.6% | Test-WG: 81.8%
+Ep 180/200 | Train Loss: 0.2961 | Val Loss: 0.2764 | Test Loss: 0.3077 | Train: 98.4% | Val: 92.1% | Test: 92.0% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 81.3% | Val-WG-Avg10: 78.7% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 181/200 | Train Loss: 0.2923 | Val Loss: 0.2764 | Test Loss: 0.3001 | Train: 98.6% | Val: 92.6% | Test: 92.3% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 78.5% | Val-WG-Best: 87.6% | Test-WG: 77.0%
+Ep 182/200 | Train Loss: 0.2926 | Val Loss: 0.2800 | Test Loss: 0.2957 | Train: 98.6% | Val: 92.7% | Test: 92.5% | Val-Avg10: 92.4% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 78.0% | Val-WG-Best: 87.6% | Test-WG: 82.5%
+Ep 183/200 | Train Loss: 0.2934 | Val Loss: 0.2836 | Test Loss: 0.2999 | Train: 98.6% | Val: 92.4% | Test: 92.2% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 78.6% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 184/200 | Train Loss: 0.2961 | Val Loss: 0.2974 | Test Loss: 0.3184 | Train: 98.5% | Val: 92.3% | Test: 91.8% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 74.3% | Val-WG-Avg10: 79.0% | Val-WG-Best: 87.6% | Test-WG: 82.3%
+Ep 185/200 | Train Loss: 0.2948 | Val Loss: 0.2828 | Test Loss: 0.2831 | Train: 98.5% | Val: 92.4% | Test: 92.7% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 82.4% | Val-WG-Avg10: 79.2% | Val-WG-Best: 87.6% | Test-WG: 84.8%
+Ep 186/200 | Train Loss: 0.2933 | Val Loss: 0.2939 | Test Loss: 0.2885 | Train: 98.6% | Val: 92.3% | Test: 92.3% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 79.8% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 187/200 | Train Loss: 0.2956 | Val Loss: 0.2981 | Test Loss: 0.2915 | Train: 98.4% | Val: 92.3% | Test: 92.3% | Val-Avg10: 92.6% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 80.3% | Val-WG-Best: 87.6% | Test-WG: 82.0%
+Ep 188/200 | Train Loss: 0.2961 | Val Loss: 0.3035 | Test Loss: 0.3107 | Train: 98.4% | Val: 91.9% | Test: 92.0% | Val-Avg10: 92.5% | Val-Best: 94.0% | Val-WG: 80.0% | Val-WG-Avg10: 79.8% | Val-WG-Best: 87.6% | Test-WG: 81.2%
+Ep 189/200 | Train Loss: 0.2934 | Val Loss: 0.3032 | Test Loss: 0.3004 | Train: 98.6% | Val: 92.0% | Test: 91.8% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 81.5% | Val-WG-Avg10: 79.9% | Val-WG-Best: 87.6% | Test-WG: 83.1%
+Ep 190/200 | Train Loss: 0.2929 | Val Loss: 0.3318 | Test Loss: 0.3253 | Train: 98.6% | Val: 91.5% | Test: 91.7% | Val-Avg10: 92.2% | Val-Best: 94.0% | Val-WG: 62.9% | Val-WG-Avg10: 78.1% | Val-WG-Best: 87.6% | Test-WG: 75.6%
+Ep 191/200 | Train Loss: 0.2951 | Val Loss: 0.3321 | Test Loss: 0.3481 | Train: 98.6% | Val: 91.5% | Test: 91.3% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 80.9% | Val-WG-Avg10: 78.2% | Val-WG-Best: 87.6% | Test-WG: 72.1%
+Ep 192/200 | Train Loss: 0.2966 | Val Loss: 0.2870 | Test Loss: 0.3057 | Train: 98.5% | Val: 92.8% | Test: 92.0% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 68.6% | Val-WG-Avg10: 77.0% | Val-WG-Best: 87.6% | Test-WG: 84.6%
+Ep 193/200 | Train Loss: 0.2960 | Val Loss: 0.2845 | Test Loss: 0.2871 | Train: 98.6% | Val: 92.1% | Test: 92.2% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 84.5% | Val-WG-Avg10: 77.2% | Val-WG-Best: 87.6% | Test-WG: 80.3%
+Ep 194/200 | Train Loss: 0.2965 | Val Loss: 0.2913 | Test Loss: 0.3087 | Train: 98.6% | Val: 92.3% | Test: 91.9% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 77.1% | Val-WG-Avg10: 77.5% | Val-WG-Best: 87.6% | Test-WG: 73.2%
+Ep 195/200 | Train Loss: 0.2949 | Val Loss: 0.2822 | Test Loss: 0.2962 | Train: 98.5% | Val: 92.5% | Test: 92.4% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 82.9% | Val-WG-Avg10: 77.5% | Val-WG-Best: 87.6% | Test-WG: 87.4%
+Ep 196/200 | Train Loss: 0.2926 | Val Loss: 0.3283 | Test Loss: 0.3395 | Train: 98.6% | Val: 91.6% | Test: 91.3% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 79.0% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 75.6%
+Ep 197/200 | Train Loss: 0.2982 | Val Loss: 0.2674 | Test Loss: 0.2804 | Train: 98.5% | Val: 92.6% | Test: 92.7% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 77.7% | Val-WG-Best: 87.6% | Test-WG: 78.7%
+Ep 198/200 | Train Loss: 0.2946 | Val Loss: 0.2714 | Test Loss: 0.2945 | Train: 98.6% | Val: 92.5% | Test: 92.4% | Val-Avg10: 92.1% | Val-Best: 94.0% | Val-WG: 79.4% | Val-WG-Avg10: 77.6% | Val-WG-Best: 87.6% | Test-WG: 80.5%
+Ep 199/200 | Train Loss: 0.2935 | Val Loss: 0.2688 | Test Loss: 0.2834 | Train: 98.5% | Val: 92.9% | Test: 92.6% | Val-Avg10: 92.2% | Val-Best: 94.0% | Val-WG: 77.3% | Val-WG-Avg10: 77.2% | Val-WG-Best: 87.6% | Test-WG: 75.4%
+Ep 200/200 | Train Loss: 0.2919 | Val Loss: 0.3285 | Test Loss: 0.3414 | Train: 98.6% | Val: 91.7% | Test: 91.6% | Val-Avg10: 92.3% | Val-Best: 94.0% | Val-WG: 78.5% | Val-WG-Avg10: 78.8% | Val-WG-Best: 87.6% | Test-WG: 72.1%
+
+============================================================
+Training completed!
+Total training time: 9458.42s (157.64m)
+Average over last 10 epochs val accuracy: 92.25%
+Average over last 10 epochs val worst-group accuracy: 78.75%
+Model saved to: ./best.pt
+Log saved to: .\logs\spur_cifar10_kan_kanRegWeight0.01_lr0.01_seed42_e200_hiddenDim2048_20260219_145123.txt
+============================================================
