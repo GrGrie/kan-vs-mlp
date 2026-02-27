@@ -1,0 +1,58 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: waterbirds
+Head: mlp
+Hidden dim: 2048
+Epochs: 25
+Batch size: 128
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.0
+Seed: 42
+Device: cuda
+Log file: .\logs\waterbirds_mlp_kanRegWeight0.0_lr0.01_seed42_e25_hiddenDim2048_20260225_164920.txt
+WandB: enabled
+============================================================
+
+data_dir  ./data\waterbirds
+Dataset: WATERBIRDS | Device: cuda | Model: MLP | Params: 1,058,818
+
+Backbone frozen: True (requires_grad=False, BN in eval mode)
+Trainable parameters: 1058818 / 12235330
+Group tracking enabled: 4 groups
+
+Ep 1/25 | Train Loss: 0.4215 | Val Loss: 0.5643 | Test Loss: 0.5860 | Train: 82.1% | Val: 70.5% | Test: 69.7% | Val-Avg10: 70.5% | Val-Best: 70.5% | Val-WG: 5.3% | Val-WG-Avg10: 5.3% | Val-WG-Best: 5.3% | Test-WG: 3.1%
+Ep 2/25 | Train Loss: 0.3426 | Val Loss: 0.7564 | Test Loss: 0.7969 | Train: 86.1% | Val: 66.1% | Test: 65.8% | Val-Avg10: 68.3% | Val-Best: 70.5% | Val-WG: 18.8% | Val-WG-Avg10: 12.0% | Val-WG-Best: 18.8% | Test-WG: 14.6%
+Ep 3/25 | Train Loss: 0.3405 | Val Loss: 0.8261 | Test Loss: 0.8842 | Train: 85.9% | Val: 73.5% | Test: 73.2% | Val-Avg10: 70.0% | Val-Best: 73.5% | Val-WG: 4.5% | Val-WG-Avg10: 9.5% | Val-WG-Best: 18.8% | Test-WG: 3.4%
+Ep 4/25 | Train Loss: 0.3349 | Val Loss: 0.7457 | Test Loss: 0.8168 | Train: 86.4% | Val: 73.5% | Test: 71.3% | Val-Avg10: 70.9% | Val-Best: 73.5% | Val-WG: 3.8% | Val-WG-Avg10: 8.1% | Val-WG-Best: 18.8% | Test-WG: 3.4%
+Ep 5/25 | Train Loss: 0.3324 | Val Loss: 0.6996 | Test Loss: 0.7538 | Train: 86.2% | Val: 72.3% | Test: 70.4% | Val-Avg10: 71.2% | Val-Best: 73.5% | Val-WG: 5.3% | Val-WG-Avg10: 7.5% | Val-WG-Best: 18.8% | Test-WG: 4.4%
+Ep 6/25 | Train Loss: 0.3293 | Val Loss: 1.2925 | Test Loss: 1.3845 | Train: 86.3% | Val: 77.6% | Test: 77.7% | Val-Avg10: 72.3% | Val-Best: 77.6% | Val-WG: 0.0% | Val-WG-Avg10: 6.3% | Val-WG-Best: 18.8% | Test-WG: 0.2%
+Ep 7/25 | Train Loss: 0.3242 | Val Loss: 0.7857 | Test Loss: 0.8647 | Train: 87.2% | Val: 74.1% | Test: 72.1% | Val-Avg10: 72.5% | Val-Best: 77.6% | Val-WG: 4.5% | Val-WG-Avg10: 6.0% | Val-WG-Best: 18.8% | Test-WG: 3.6%
+Ep 8/25 | Train Loss: 0.3513 | Val Loss: 0.8983 | Test Loss: 0.9551 | Train: 85.4% | Val: 60.2% | Test: 58.9% | Val-Avg10: 71.0% | Val-Best: 77.6% | Val-WG: 18.0% | Val-WG-Avg10: 7.5% | Val-WG-Best: 18.8% | Test-WG: 15.4%
+Ep 9/25 | Train Loss: 0.3217 | Val Loss: 0.9658 | Test Loss: 1.0303 | Train: 86.9% | Val: 60.1% | Test: 59.2% | Val-Avg10: 69.8% | Val-Best: 77.6% | Val-WG: 30.8% | Val-WG-Avg10: 10.1% | Val-WG-Best: 30.8% | Test-WG: 26.8%
+Ep 10/25 | Train Loss: 0.3314 | Val Loss: 0.7696 | Test Loss: 0.8367 | Train: 87.1% | Val: 71.0% | Test: 69.7% | Val-Avg10: 69.9% | Val-Best: 77.6% | Val-WG: 6.8% | Val-WG-Avg10: 9.8% | Val-WG-Best: 30.8% | Test-WG: 5.6%
+Ep 11/25 | Train Loss: 0.3127 | Val Loss: 1.5324 | Test Loss: 1.6382 | Train: 88.1% | Val: 77.9% | Test: 77.8% | Val-Avg10: 70.6% | Val-Best: 77.9% | Val-WG: 0.0% | Val-WG-Avg10: 9.2% | Val-WG-Best: 30.8% | Test-WG: 0.0%
+Ep 12/25 | Train Loss: 0.3183 | Val Loss: 0.8590 | Test Loss: 0.9236 | Train: 87.0% | Val: 75.6% | Test: 74.9% | Val-Avg10: 71.6% | Val-Best: 77.9% | Val-WG: 0.8% | Val-WG-Avg10: 7.4% | Val-WG-Best: 30.8% | Test-WG: 0.8%
+Ep 13/25 | Train Loss: 0.3061 | Val Loss: 0.8763 | Test Loss: 0.9437 | Train: 87.7% | Val: 77.3% | Test: 76.9% | Val-Avg10: 72.0% | Val-Best: 77.9% | Val-WG: 0.8% | Val-WG-Avg10: 7.1% | Val-WG-Best: 30.8% | Test-WG: 0.5%
+Ep 14/25 | Train Loss: 0.3128 | Val Loss: 1.3131 | Test Loss: 1.3810 | Train: 87.5% | Val: 50.5% | Test: 49.2% | Val-Avg10: 69.7% | Val-Best: 77.9% | Val-WG: 20.8% | Val-WG-Avg10: 8.8% | Val-WG-Best: 30.8% | Test-WG: 19.3%
+Ep 15/25 | Train Loss: 0.3159 | Val Loss: 0.7086 | Test Loss: 0.7619 | Train: 87.0% | Val: 68.7% | Test: 67.6% | Val-Avg10: 69.3% | Val-Best: 77.9% | Val-WG: 6.8% | Val-WG-Avg10: 8.9% | Val-WG-Best: 30.8% | Test-WG: 6.1%
+Ep 16/25 | Train Loss: 0.3204 | Val Loss: 1.0793 | Test Loss: 1.1911 | Train: 87.3% | Val: 56.0% | Test: 53.9% | Val-Avg10: 67.1% | Val-Best: 77.9% | Val-WG: 20.8% | Val-WG-Avg10: 11.0% | Val-WG-Best: 30.8% | Test-WG: 19.8%
+Ep 17/25 | Train Loss: 0.3225 | Val Loss: 0.9996 | Test Loss: 1.0786 | Train: 87.1% | Val: 56.5% | Test: 54.8% | Val-Avg10: 65.4% | Val-Best: 77.9% | Val-WG: 20.8% | Val-WG-Avg10: 12.6% | Val-WG-Best: 30.8% | Test-WG: 20.2%
+Ep 18/25 | Train Loss: 0.3167 | Val Loss: 0.8707 | Test Loss: 0.9549 | Train: 87.0% | Val: 72.9% | Test: 71.5% | Val-Avg10: 66.6% | Val-Best: 77.9% | Val-WG: 5.3% | Val-WG-Avg10: 11.4% | Val-WG-Best: 30.8% | Test-WG: 3.9%
+Ep 19/25 | Train Loss: 0.3210 | Val Loss: 0.9409 | Test Loss: 1.0249 | Train: 87.8% | Val: 73.9% | Test: 71.9% | Val-Avg10: 68.0% | Val-Best: 77.9% | Val-WG: 6.0% | Val-WG-Avg10: 8.9% | Val-WG-Best: 30.8% | Test-WG: 5.9%
+Ep 20/25 | Train Loss: 0.3083 | Val Loss: 0.8600 | Test Loss: 0.9552 | Train: 87.3% | Val: 71.0% | Test: 68.7% | Val-Avg10: 68.0% | Val-Best: 77.9% | Val-WG: 6.0% | Val-WG-Avg10: 8.8% | Val-WG-Best: 30.8% | Test-WG: 5.0%
+Ep 21/25 | Train Loss: 0.3568 | Val Loss: 0.7256 | Test Loss: 0.7891 | Train: 86.0% | Val: 70.7% | Test: 69.7% | Val-Avg10: 67.3% | Val-Best: 77.9% | Val-WG: 5.3% | Val-WG-Avg10: 9.3% | Val-WG-Best: 30.8% | Test-WG: 4.2%
+Ep 22/25 | Train Loss: 0.3185 | Val Loss: 0.8117 | Test Loss: 0.8840 | Train: 87.4% | Val: 63.8% | Test: 61.7% | Val-Avg10: 66.1% | Val-Best: 77.9% | Val-WG: 13.5% | Val-WG-Avg10: 10.6% | Val-WG-Best: 30.8% | Test-WG: 13.1%
+Ep 23/25 | Train Loss: 0.3068 | Val Loss: 0.8768 | Test Loss: 0.9638 | Train: 87.5% | Val: 75.2% | Test: 74.0% | Val-Avg10: 65.9% | Val-Best: 77.9% | Val-WG: 3.0% | Val-WG-Avg10: 10.8% | Val-WG-Best: 30.8% | Test-WG: 1.9%
+Ep 24/25 | Train Loss: 0.3042 | Val Loss: 1.1969 | Test Loss: 1.2753 | Train: 87.8% | Val: 77.8% | Test: 77.8% | Val-Avg10: 68.7% | Val-Best: 77.9% | Val-WG: 0.0% | Val-WG-Avg10: 8.7% | Val-WG-Best: 30.8% | Test-WG: 0.0%
+Ep 25/25 | Train Loss: 0.3104 | Val Loss: 1.1398 | Test Loss: 1.2363 | Train: 87.6% | Val: 54.0% | Test: 52.7% | Val-Avg10: 67.2% | Val-Best: 77.9% | Val-WG: 22.5% | Val-WG-Avg10: 10.3% | Val-WG-Best: 30.8% | Test-WG: 21.3%
+
+============================================================
+Training completed!
+Total training time: 846.71s (14.11m)
+Average over last 10 epochs val accuracy: 67.19%
+Average over last 10 epochs val worst-group accuracy: 10.33%
+Model saved to: ./best.pt
+Log saved to: .\logs\waterbirds_mlp_kanRegWeight0.0_lr0.01_seed42_e25_hiddenDim2048_20260225_164920.txt
+============================================================

@@ -1,6 +1,7 @@
 # ==========================================
 # Example command to run:
 # python train.py --wandb --dataset waterbirds --head kan --kan_reg_weight 0.01
+# python train.py --wandb --dataset spur_cifar10 --head mlp --seed 1
 # ==========================================
 import torch
 import torch.nn as nn
@@ -166,7 +167,7 @@ class KANLinear(torch.nn.Module):
         ATB = AT @ B
         
         # Regularization term to ensure invertibility
-        reg = 1e-5 * torch.eye(ATA.shape[-1], device=ATA.device).unsqueeze(0)
+        reg = 1e-4 * torch.eye(ATA.shape[-1], device=ATA.device).unsqueeze(0)
         
         solution = torch.linalg.solve(ATA + reg, ATB) # (in_features, grid_size + spline_order, out_features)
         result = solution.permute(
@@ -250,7 +251,10 @@ class KANLinear(torch.nn.Module):
         )
 
         self.grid.copy_(grid.T)
-        self.spline_weight.data.copy_(self.curve2coeff(x, unreduced_spline_output))
+        try:
+            self.spline_weight.data.copy_(self.curve2coeff(x, unreduced_spline_output))
+        except torch.linalg.LinAlgError as e:
+            print(f"[KAN grid update] Skipping spline weight update due to singular matrix: {e}")
 
     def regularization_loss(self, regularize_activation=1.0, regularize_entropy=1.0):
         """
@@ -290,7 +294,8 @@ class ResNetBackbone(nn.Module):
     def __init__(self, input_channels=3, image_size=32):
         super().__init__()
         # Using 'weights=None' to avoid warnings, trying ImageNet weights
-        base_model = torchvision.models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
+        base_model = torchvision.models.resnet18(weights=None)
+        # base_model = torchvision.models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
         
         # Adapt for small images (32x32 or similar)
         if image_size <= 64:
@@ -432,6 +437,9 @@ def update_kan_grids(model, loader, device, max_batches=10):
 
 def train_one_epoch(model, loader, criterion, optimizer, device, epoch=None, kan_reg_weight=0.0):
     model.train()
+    # Keep backbone frozen, including BatchNorm running stats.
+    if hasattr(model, 'backbone'):
+        model.backbone.eval()
     running_loss = 0.0
     correct = 0
     total = 0
@@ -481,6 +489,12 @@ def train_one_epoch(model, loader, criterion, optimizer, device, epoch=None, kan
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+
+def freeze_backbone(model):
+    if hasattr(model, 'backbone'):
+        for param in model.backbone.parameters():
+            param.requires_grad = False
 
 
 def get_dataloaders(data_dir, batch_size, dataset_name='cifar10'):
@@ -722,6 +736,8 @@ def main():
     ap.add_argument("--kan_reg_weight", type=float, default=0.0,
                     help="Weight for KAN regularization loss (0 disables it)")
     ap.add_argument("--no_grid_update", action="store_true", help="Disable KAN grid update")
+    ap.add_argument("--freeze", action="store_true", default=False,
+                    help="Freeze the ResNet18 backbone to prevent training")
     ap.add_argument("--wandb", action="store_true", default=False,
                     help="Enable Weights & Biases experiment tracking")
     args = ap.parse_args()
@@ -809,9 +825,17 @@ def main():
             image_size=image_size
         ).to(device)
 
+    if args.freeze:
+        freeze_backbone(model)
+
     print(f"Dataset: {args.dataset.upper()} | Device: {device} | Model: {args.head.upper()} | Params: {count_parameters(model):,}")
     print()
     
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    total_params = sum(p.numel() for p in model.parameters())
+
+    print(f"Backbone frozen: {args.freeze} (requires_grad={not args.freeze}, BN in {'eval' if args.freeze else 'train'} mode)")
+    print(f"Trainable parameters: {trainable_params} / {total_params}")
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.wd)
     criterion = nn.CrossEntropyLoss()
 

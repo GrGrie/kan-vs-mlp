@@ -1,0 +1,22 @@
+============================================================
+Training Configuration
+============================================================
+Dataset: waterbirds
+Head: mlp
+Hidden dim: 2048
+Epochs: 25
+Batch size: 128
+Learning rate: 0.01
+Weight decay: 0.0005
+KAN reg weight: 0.0
+Seed: 42
+Device: cuda
+Log file: .\logs\waterbirds_mlp_kanRegWeight0.0_lr0.01_seed42_e25_hiddenDim2048_20260225_164833.txt
+WandB: enabled
+============================================================
+
+data_dir  ./data\waterbirds
+Dataset: WATERBIRDS | Device: cuda | Model: MLP | Params: 1,058,818
+
+Backbone frozen: True (requires_grad=False, BN in eval mode)
+Trainable parameters: 1058818 / 12235330
