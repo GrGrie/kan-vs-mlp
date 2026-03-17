@@ -314,30 +314,41 @@ class ResNetBackbone(nn.Module):
         return torch.flatten(x, 1)
 
 class ModelWithMLPHead(nn.Module):
-    def __init__(self, num_classes=10, hidden_dim=256, input_channels=3, image_size=32):
+    def __init__(self, num_classes=10, hidden_dim=256, input_channels=3, image_size=32, one_layer=False):
         super().__init__()
         self.backbone = ResNetBackbone(input_channels=input_channels, image_size=image_size)
-        self.head = nn.Sequential(
-            nn.Linear(self.backbone.feature_dim, hidden_dim),
-            nn.BatchNorm1d(hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, num_classes)
-        )
+        if one_layer:
+            self.head = nn.Sequential(
+                nn.Linear(self.backbone.feature_dim, num_classes)
+            )
+        else:
+            self.head = nn.Sequential(
+                nn.Linear(self.backbone.feature_dim, hidden_dim),
+                nn.BatchNorm1d(hidden_dim),
+                nn.ReLU(),
+                nn.Linear(hidden_dim, num_classes)
+            )
 
     def forward(self, x):
         feats = self.backbone(x)
         return self.head(feats)
 
 class ModelWithKANHead(nn.Module):
-    def __init__(self, num_classes=10, hidden_dim=256, input_channels=3, image_size=32):
+    def __init__(self, num_classes=10, hidden_dim=256, input_channels=3, image_size=32, one_layer=False):
         super().__init__()
         self.backbone = ResNetBackbone(input_channels=input_channels, image_size=image_size)
-        self.head = nn.Sequential(
-            nn.BatchNorm1d(self.backbone.feature_dim),
-            KANLinear(self.backbone.feature_dim, hidden_dim, grid_size=5, spline_order=3),
-            nn.LayerNorm(hidden_dim),
-            KANLinear(hidden_dim, num_classes, grid_size=5, spline_order=3)
-        )
+        if one_layer:
+            self.head = nn.Sequential(
+                nn.BatchNorm1d(self.backbone.feature_dim),
+                KANLinear(self.backbone.feature_dim, num_classes, grid_size=5, spline_order=3)
+            )
+        else:
+            self.head = nn.Sequential(
+                nn.BatchNorm1d(self.backbone.feature_dim),
+                KANLinear(self.backbone.feature_dim, hidden_dim, grid_size=5, spline_order=3),
+                nn.LayerNorm(hidden_dim),
+                KANLinear(hidden_dim, num_classes, grid_size=5, spline_order=3)
+            )
 
     def forward(self, x):
         feats = self.backbone(x)
@@ -715,6 +726,8 @@ def evaluate(model, loader, criterion, device, grouper=None):
 
 def format_wandb_run_name(args):
     run_name = f"{args.head}_seed{args.seed}"
+    if args.one_layer:
+        run_name += "_1layer"
     if args.kan_reg_weight != 0:
         run_name += f"_regWeight{args.kan_reg_weight}"
     run_name += f"_{args.dataset}_lr{args.lr}"
@@ -736,6 +749,8 @@ def main():
     ap.add_argument("--kan_reg_weight", type=float, default=0.0,
                     help="Weight for KAN regularization loss (0 disables it)")
     ap.add_argument("--no_grid_update", action="store_true", help="Disable KAN grid update")
+    ap.add_argument("--one_layer", action="store_true", default=False,
+                    help="Use a single-layer projection head instead of two layers")
     ap.add_argument("--freeze", action="store_true", default=False,
                     help="Freeze the ResNet18 backbone to prevent training")
     ap.add_argument("--wandb", action="store_true", default=False,
@@ -815,14 +830,16 @@ def main():
             num_classes=num_classes, 
             hidden_dim=args.hidden_dim,
             input_channels=input_channels,
-            image_size=image_size
+            image_size=image_size,
+            one_layer=args.one_layer
         ).to(device)
     else:
         model = ModelWithKANHead(
             num_classes=num_classes, 
             hidden_dim=args.hidden_dim,
             input_channels=input_channels,
-            image_size=image_size
+            image_size=image_size,
+            one_layer=args.one_layer
         ).to(device)
 
     if args.freeze:
